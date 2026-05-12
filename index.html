@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="theme-color" content="#2f6022" />
+  <title>Salada de Mão · App com 60 receitas práticas no pote — fácil e gostoso</title>
+  <meta name="description"
+    content="Acesse o app Salada de Mão: 60 saladas no pote que duram 7 dias na geladeira, molhos especiais e 4 bônus. Acesso imediato por R$29,90." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Salada de Mão · 60 receitas práticas no pote" />
+  <meta property="og:description"
+    content="60 saladas no pote que duram 7 dias na geladeira, molhos especiais e 4 bônus. Acesso imediato por R$29,90." />
+  <meta property="og:image" content="images/saladas-mosaico.webp" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Salada de Mão · 60 receitas práticas no pote" />
+  <meta name="twitter:description"
+    content="60 saladas no pote que duram 7 dias na geladeira. Acesso imediato por R$29,90." />
+  <meta name="twitter:image" content="images/saladas-mosaico.webp" />
+
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
+  <link rel="apple-touch-icon" href="images/logo.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Caveat:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --verde: #4a8c3a;
+      --verde-esc: #2f6022;
+      --verde-cla: #d8e8c8;
+      --verde-bem: #e9f1dc;
+      --laranja: #e87e2e;
+      --laranja-cla: #fce6d4;
+      --amarelo: #f5c842;
+      --amarelo-esc: #d4a821;
+      --areia: #faf6ed;
+      --creme: #fefcf6;
+      --bege: #f3ecdc;
+      --texto: #1f1d18;
+      --texto-2: #4a463a;
+      --texto-3: #8a8270;
+      --borda: #e3dcc8;
+      --sombra: rgba(47, 96, 34, .1);
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--creme);
+      color: var(--texto);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 22px
+    }
+
+    .container-sm {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 22px
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Lora', serif;
+      line-height: 1.2;
+      color: var(--texto)
+    }
+
+    .fi {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .65s ease, transform .65s ease
+    }
+
+    .fi.in {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .d1 {
+      transition-delay: .1s
+    }
+
+    .d2 {
+      transition-delay: .2s
+    }
+
+    .d3 {
+      transition-delay: .3s
+    }
+
+    .d4 {
+      transition-delay: .4s
+    }
+
+    .d5 {
+      transition-delay: .5s
+    }
+
+    /* URGÊNCIA */
+    .urgencia {
+      background: var(--verde-esc);
+      color: rgba(255, 255, 255, .95);
+      text-align: center;
+      padding: 11px 18px;
+      font-size: .83rem;
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .urgencia #timer {
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, .18);
+      padding: 1px 11px;
+      border-radius: 4px
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--verde-bem);
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--borda);
+      text-align: center
+    }
+
+    .logo-img {
+      max-width: 260px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      mix-blend-mode: multiply
+    }
+
+    /* IMG SEM FUNDO (blend para limpar fundos brancos/creme) */
+    .hero-mockup-img,
+    .app-mockup-img,
+    .beneficios-img,
+    .identifica-nuvem-img,
+    .bandeiras-img,
+    .selo-seguro-img {
+      mix-blend-mode: multiply
+    }
+
+    .footer-logo-img {
+      mix-blend-mode: screen
+    }
+
+    /* HERO (estilo centralizado, foco no produto) */
+    .hero {
+      background: linear-gradient(180deg, var(--verde-bem) 0%, var(--areia) 100%);
+      padding: 48px 22px 60px;
+      position: relative;
+      overflow: hidden;
+      text-align: center
+    }
+
+    .hero-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px
+    }
+
+    .hero h1 {
+      font-size: clamp(1.4rem, 3.4vw, 1.95rem);
+      font-weight: 700;
+      letter-spacing: -.005em;
+      color: var(--texto);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.35;
+      max-width: 560px
+    }
+
+    .hero h1 .destaque {
+      color: var(--verde-esc);
+      font-weight: 800;
+      background: linear-gradient(180deg, transparent 60%, rgba(245, 200, 66, .55) 60%);
+      padding: 0 4px
+    }
+
+    .hero h1 .murchar {
+      color: var(--laranja);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .01em
+    }
+
+    .hero-imagem-principal {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 18px 50px rgba(47, 96, 34, .22);
+      aspect-ratio: 1/1;
+      object-fit: cover
+    }
+
+    .hero-cta-bloco {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px
+    }
+
+    .hero-cta-bloco .btn {
+      width: 100%;
+      justify-content: center;
+      font-size: 1.08rem;
+      padding: 18px 22px
+    }
+
+    .hero-trustline {
+      font-size: .82rem;
+      color: var(--texto-3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    /* O QUE VOCÊ VAI ENCONTRAR */
+    .encontrar {
+      padding: 70px 22px;
+      background: var(--verde)
+    }
+
+    .encontrar-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center
+    }
+
+    .encontrar-titulo {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      font-weight: 500;
+      margin-bottom: 28px;
+      color: #fff;
+      line-height: 1.25
+    }
+
+    .encontrar-titulo strong {
+      display: block;
+      font-weight: 700;
+      color: var(--amarelo)
+    }
+
+    .encontrar-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 0 auto 30px;
+      text-align: left;
+      background: #fff;
+      padding: 26px 26px;
+      border-radius: 14px;
+      border: 1px solid var(--borda);
+      box-shadow: 0 8px 28px var(--sombra);
+      max-width: 520px
+    }
+
+    .encontrar-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1.02rem;
+      color: var(--texto-2);
+      font-weight: 500;
+      line-height: 1.4
+    }
+
+    .encontrar-item strong {
+      color: var(--verde-esc);
+      font-weight: 700
+    }
+
+    .encontrar-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--verde);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .95rem;
+      flex-shrink: 0;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(74, 140, 58, .3)
+    }
+
+    .encontrar-imagem {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 14px 40px var(--sombra);
+      margin: 0 auto
+    }
+
+    .encontrar-cta {
+      margin-top: 28px
+    }
+
+    /* NÚMEROS */
+    .numeros {
+      background: var(--verde-esc);
+      padding: 42px 22px;
+      position: relative
+    }
+
+    .numeros-row {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      padding: 8px 0
+    }
+
+    .num-item {
+      text-align: center;
+      padding: 18px 10px;
+      border-right: 1px solid rgba(255, 255, 255, .12)
+    }
+
+    .num-item:last-child {
+      border-right: none
+    }
+
+    .num-val {
+      font-family: 'Lora', serif;
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--amarelo);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px
+    }
+
+    .num-desc {
+      font-size: .83rem;
+      color: rgba(255, 255, 255, .75)
+    }
+
+    /* ANTES E DEPOIS */
+    .antes-depois {
+      background: var(--verde-esc);
+      padding: 60px 22px;
+      text-align: center
+    }
+
+    .antes-depois h2 {
+      color: #fff;
+      font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+      max-width: 580px;
+      margin: 0 auto 30px;
+      line-height: 1.4
+    }
+
+    .antes-depois h2 em {
+      font-style: italic;
+      color: var(--amarelo)
+    }
+
+    .antes-depois-img {
+      max-width: 520px;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .25)
+    }
+
+    .antes-depois-legenda {
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, .85);
+      margin-top: 18px
+    }
+
+    /* SEÇÃO */
+    .sec {
+      padding: 80px 22px
+    }
+
+    .sec-alt {
+      background: var(--areia)
+    }
+
+    .kicker {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: var(--laranja);
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600
+    }
+
+    .sec-titulo {
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      margin-bottom: 14px;
+      letter-spacing: -.01em
+    }
+
+    .sec-sub {
+      font-size: 1rem;
+      color: var(--texto-3);
+      max-width: 580px;
+      line-height: 1.75
+    }
+
+    .sec-head {
+      margin-bottom: 48px
+    }
+
+    .sec-head.center {
+      text-align: center
+    }
+
+    .sec-head.center .sec-sub {
+      margin: 0 auto
+    }
+
+    /* IDENTIFICA */
+    .identifica-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center
+    }
+
+    .identifica-nuvem-img {
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto
+    }
+
+    .identifica-content .ponte {
+      background: var(--verde-bem);
+      border-left: 4px solid var(--verde);
+      padding: 18px 20px;
+      border-radius: 0 8px 8px 0;
+      font-size: .97rem;
+      color: var(--texto-2);
+      line-height: 1.8;
+      margin-top: 24px
+    }
+
+    .identifica-content .ponte strong {
+      color: var(--verde-esc)
+    }
+
+    .problem-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .97rem;
+      color: var(--texto-2);
+      background: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--borda)
+    }
+
+    .problem-x {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #fce8e8;
+      color: #d94040;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: .85rem
+    }
+
+    /* BENEFÍCIOS */
+    .beneficios {
+      background: var(--bege);
+      padding: 80px 22px
+    }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto
+    }
+
+    .beneficios-img {
+      max-width: 480px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto
+    }
+
+    .beneficios-text h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      margin-bottom: 18px;
+      color: var(--verde-esc)
+    }
+
+    .beneficios-text p {
+      font-size: 1rem;
+      color: var(--texto-2);
+      line-height: 1.85;
+      margin-bottom: 14px
+    }
+
+    /* GELADEIRA */
+    .geladeira-section {
+      background: var(--areia);
+      padding: 80px 22px;
+      text-align: center
+    }
+
+    .geladeira-img {
+      max-width: 540px;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 12px 40px var(--sombra)
+    }
+
+    /* RECEITAS */
+    .receitas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px
+    }
+
+    .r-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--borda);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      text-align: center;
+      padding: 14px 12px 16px
+    }
+
+    .r-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px var(--sombra);
+      border-color: var(--verde)
+    }
+
+    .r-thumb {
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 12px
+    }
+
+    .r-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease
+    }
+
+    .r-card:hover .r-thumb img {
+      transform: scale(1.04)
+    }
+
+    .r-nome {
+      font-family: 'Lora', serif;
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 4px;
+      line-height: 1.3
+    }
+
+    .r-kcal {
+      font-size: .78rem;
+      color: var(--texto-3)
+    }
+
+    /* MOLHOS DESTAQUE */
+    .molhos-section {
+      padding: 60px 22px;
+      background: var(--creme)
+    }
+
+    .molhos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 880px;
+      margin: 0 auto
+    }
+
+    .molho-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 22px var(--sombra);
+      position: relative
+    }
+
+    .molho-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4/5;
+      object-fit: cover
+    }
+
+    .molho-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, transparent 100%);
+      padding: 18px 16px 14px;
+      color: #fff;
+      font-family: 'Caveat', cursive;
+      font-size: 1.15rem;
+      text-align: center
+    }
+
+    /* VÍDEO APRESENTAÇÃO APP */
+    .app-video-section {
+      background: var(--bege);
+      padding: 60px 22px 0;
+      text-align: center
+    }
+
+    .app-video-wrap {
+      position: relative;
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
+      padding-bottom: 177.78%; /* fallback 9:16 para navegadores sem aspect-ratio */
+      height: 0;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .18);
+      background: #000
+    }
+
+    @supports (aspect-ratio: 9 / 16) {
+      .app-video-wrap {
+        padding-bottom: 0;
+        height: auto;
+        aspect-ratio: 9 / 16
+      }
+    }
+
+    .app-video-wrap iframe,
+    .app-video-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      object-fit: cover;
+      background: #000
+    }
+
+    /* APP */
+    .app-section {
+      background: var(--bege);
+      padding: 80px 22px
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 50px;
+      align-items: center;
+      max-width: 980px;
+      margin: 0 auto
+    }
+
+    .app-mockup-wrap {
+      display: flex;
+      justify-content: center;
+      position: relative
+    }
+
+    .app-mockup-img {
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 18px 40px rgba(0, 0, 0, .18))
+    }
+
+    .app-text h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      margin-bottom: 16px;
+      color: var(--verde-esc)
+    }
+
+    .app-text p {
+      font-size: 1rem;
+      color: var(--texto-2);
+      margin-bottom: 14px;
+      line-height: 1.8
+    }
+
+    .app-features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0 26px
+    }
+
+    .app-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .93rem;
+      color: var(--texto-2)
+    }
+
+    .app-feature::before {
+      content: '📱';
+      font-size: 1.1rem
+    }
+
+    /* MOSAICO SALADAS */
+    .mosaico-section {
+      padding: 60px 22px;
+      background: var(--areia);
+      text-align: center
+    }
+
+    .mosaico-img {
+      max-width: 560px;
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 12px 40px var(--sombra)
+    }
+
+    /* CARROSSEL DEPOIMENTOS */
+    .depo-section {
+      background: linear-gradient(180deg, var(--verde) 0%, var(--verde-esc) 100%);
+      padding: 80px 22px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .depo-section::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .depo-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .depo-head {
+      text-align: center;
+      margin-bottom: 42px;
+      position: relative;
+      z-index: 2
+    }
+
+    .depo-head .kicker {
+      color: var(--amarelo)
+    }
+
+    .depo-head h2 {
+      color: #fff
+    }
+
+    .depo-head .sec-sub {
+      color: rgba(255, 255, 255, .85);
+      margin: 0 auto
+    }
+
+    .carousel {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      z-index: 2
+    }
+
+    .carousel-track-wrap {
+      overflow: hidden;
+      border-radius: 14px
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform .5s ease;
+      gap: 18px;
+      will-change: transform
+    }
+
+    .depo-card {
+      flex: 0 0 calc((100% - 36px) / 3);
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .18)
+    }
+
+    .depo-card img {
+      width: 100%;
+      display: block;
+      height: auto
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--verde);
+      font-weight: 700;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, .25);
+      transition: transform .2s, background .2s;
+      z-index: 3
+    }
+
+    .carousel-btn:hover {
+      background: var(--amarelo);
+      transform: translateY(-50%) scale(1.05)
+    }
+
+    .carousel-btn.prev {
+      left: -12px
+    }
+
+    .carousel-btn.next {
+      right: -12px
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .3);
+      border: none;
+      cursor: pointer;
+      transition: background .2s, width .2s
+    }
+
+    .carousel-dot.active {
+      background: var(--amarelo);
+      width: 28px;
+      border-radius: 6px
+    }
+
+    /* BÔNUS */
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      max-width: 840px;
+      margin: 0 auto
+    }
+
+    .bonus-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--borda);
+      transition: box-shadow .25s, transform .25s;
+      position: relative;
+      display: flex;
+      flex-direction: column
+    }
+
+    .bonus-card:hover {
+      box-shadow: 0 10px 32px var(--sombra);
+      transform: translateY(-4px)
+    }
+
+    @keyframes gratisPulse {
+
+      0%,
+      100% {
+        transform: rotate(-6deg) scale(1);
+        box-shadow: 0 4px 14px rgba(232, 126, 46, .45)
+      }
+
+      50% {
+        transform: rotate(-6deg) scale(1.06);
+        box-shadow: 0 6px 22px rgba(232, 126, 46, .7)
+      }
+    }
+
+    .bonus-gratis-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--laranja);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 800;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      z-index: 3;
+      box-shadow: 0 4px 14px rgba(232, 126, 46, .45);
+      transform: rotate(-6deg);
+      animation: gratisPulse 2s ease-in-out infinite;
+      border: 2px solid #fff
+    }
+
+    .bonus-gratis-badge::before {
+      content: '★ ';
+      font-size: .9em
+    }
+
+    .bonus-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden
+    }
+
+    .bonus-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .bonus-body {
+      padding: 20px 22px
+    }
+
+    .bonus-body h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--verde-esc)
+    }
+
+    .bonus-body p {
+      font-size: .88rem;
+      color: var(--texto-3);
+      margin-bottom: 14px;
+      line-height: 1.6
+    }
+
+    .bonus-pricing {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--verde-bem), var(--verde-cla));
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px dashed var(--verde)
+    }
+
+    .bonus-old {
+      font-size: .92rem;
+      color: var(--texto-3);
+      text-decoration: line-through
+    }
+
+    .bonus-free {
+      font-family: 'Lora', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--verde-esc);
+      letter-spacing: -.01em;
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .bonus-free strong {
+      font-family: 'Caveat', cursive;
+      font-size: 1.7rem;
+      color: var(--laranja);
+      font-weight: 700;
+      line-height: 1
+    }
+
+    .bonus-total-nota {
+      margin-top: 34px;
+      font-size: 1.05rem;
+      color: var(--texto);
+      padding: 22px 26px;
+      background: linear-gradient(135deg, #fff5e6, var(--verde-bem));
+      border-radius: 14px;
+      text-align: center;
+      border: 2px dashed var(--laranja);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
+      line-height: 1.6
+    }
+
+    .bonus-total-nota strong {
+      color: var(--verde-esc);
+      font-size: 1.1em
+    }
+
+    /* AUTORA */
+    .autora-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center
+    }
+
+    .autora-foto-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px var(--sombra)
+    }
+
+    .autora-foto-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 14px
+    }
+
+    .autora-txt p {
+      font-size: 1rem;
+      color: var(--texto-2);
+      line-height: 1.85;
+      margin-bottom: 14px
+    }
+
+    .autora-txt strong {
+      color: var(--verde-esc)
+    }
+
+    .autora-assinatura {
+      font-family: 'Caveat', cursive;
+      font-size: 1.7rem;
+      color: var(--verde);
+      margin-top: 8px;
+      display: block
+    }
+
+    /* PREÇO */
+    .preco-section {
+      background: linear-gradient(180deg, var(--verde-esc) 0%, #1f4419 100%);
+      padding: 80px 22px;
+      text-align: center;
+      position: relative
+    }
+
+    .preco-head {
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 2
+    }
+
+    .preco-head .kicker {
+      color: rgba(255, 255, 255, .6)
+    }
+
+    .preco-head h2 {
+      color: #fff
+    }
+
+    .preco-logo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .25);
+      border: 3px solid rgba(255, 255, 255, .15)
+    }
+
+    .preco-box {
+      background: #fff;
+      border-radius: 18px;
+      padding: 44px 40px;
+      max-width: 580px;
+      margin: 0 auto;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .25);
+      position: relative;
+      border-top: 4px solid var(--amarelo)
+    }
+
+    .preco-ribbon {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--laranja);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 6px 26px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      white-space: nowrap
+    }
+
+    .preco-box h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.18rem;
+      margin-bottom: 6px;
+      text-align: center
+    }
+
+    .preco-box-sub {
+      font-size: .85rem;
+      color: var(--texto-3);
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 24px
+    }
+
+    .preco-lista {
+      margin-bottom: 28px
+    }
+
+    .preco-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid #f0ebe2;
+      font-size: .93rem;
+      color: var(--texto-2);
+      text-align: left
+    }
+
+    .preco-item:last-child {
+      border-bottom: none
+    }
+
+    .p-ok {
+      color: var(--verde);
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 1.1rem
+    }
+
+    .preco-de {
+      text-align: center;
+      font-size: .88rem;
+      color: var(--texto-3);
+      text-decoration: line-through;
+      margin-bottom: 4px
+    }
+
+    .preco-val {
+      text-align: center;
+      font-family: 'Lora', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--verde);
+      line-height: 1;
+      margin-bottom: 6px
+    }
+
+    .preco-parcel {
+      text-align: center;
+      font-size: .9rem;
+      color: var(--texto-3);
+      margin-bottom: 26px
+    }
+
+    .preco-trust {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      font-size: .78rem;
+      color: var(--texto-3)
+    }
+
+    .preco-trust span {
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .garantia-nota {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: var(--areia);
+      border-radius: 10px;
+      font-size: .87rem;
+      color: var(--texto-2);
+      line-height: 1.7;
+      text-align: center;
+      border: 1px solid var(--borda)
+    }
+
+    .garantia-nota strong {
+      color: var(--verde-esc)
+    }
+
+    .bandeiras-img {
+      max-width: 480px;
+      width: 90%;
+      margin: 30px auto 0;
+      display: block;
+      opacity: .8
+    }
+
+    .selo-seguro-img {
+      max-width: 280px;
+      margin: 18px auto 0;
+      display: block;
+      opacity: .85
+    }
+
+    /* FAQ */
+    .faq-lista {
+      max-width: 760px
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--borda)
+    }
+
+    .faq-q {
+      padding: 20px 4px;
+      font-size: .98rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--texto);
+      user-select: none;
+      transition: color .2s
+    }
+
+    .faq-q:hover {
+      color: var(--verde)
+    }
+
+    .faq-seta {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: var(--laranja);
+      flex-shrink: 0;
+      transition: transform .3s;
+      font-weight: 700
+    }
+
+    .faq-item.open .faq-seta {
+      transform: rotate(45deg)
+    }
+
+    .faq-r {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .38s ease;
+      font-size: .93rem;
+      color: var(--texto-2);
+      line-height: 1.85
+    }
+
+    .faq-item.open .faq-r {
+      max-height: 380px;
+      padding-bottom: 20px
+    }
+
+    /* BOTÕES */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .97rem;
+      font-weight: 700;
+      padding: 15px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s, background .2s;
+      line-height: 1
+    }
+
+    .btn-principal {
+      background: var(--amarelo);
+      color: var(--texto);
+      box-shadow: 0 4px 18px rgba(245, 200, 66, .4)
+    }
+
+    .btn-principal:hover {
+      background: var(--amarelo-esc);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(245, 200, 66, .55)
+    }
+
+    .btn-lg {
+      padding: 18px 40px;
+      font-size: 1.05rem
+    }
+
+    .btn-verde {
+      background: var(--verde);
+      color: #fff
+    }
+
+    .btn-verde:hover {
+      background: var(--verde-esc);
+      transform: translateY(-2px)
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--verde);
+      border: 2px solid var(--verde)
+    }
+
+    .btn-outline:hover {
+      background: var(--verde-bem)
+    }
+
+    @keyframes softp {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 18px rgba(245, 200, 66, .4)
+      }
+
+      50% {
+        box-shadow: 0 4px 30px rgba(245, 200, 66, .7)
+      }
+    }
+
+    .btn-pulso {
+      animation: softp 2.8s ease-in-out infinite
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--verde-esc);
+      color: rgba(255, 255, 255, .65);
+      text-align: center;
+      padding: 42px 20px;
+      font-size: .83rem
+    }
+
+    .footer-logo-img {
+      max-width: 160px;
+      height: auto;
+      margin: 0 auto 18px;
+      display: block;
+      opacity: .95;
+      border-radius: 8px
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 14px 0
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, .55);
+      text-decoration: none;
+      transition: color .2s
+    }
+
+    .footer-links a:hover {
+      color: #fff
+    }
+
+    .footer-copy {
+      margin-top: 14px;
+      font-size: .75rem;
+      color: rgba(255, 255, 255, .35)
+    }
+
+    .selos {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 18px 0;
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .5)
+    }
+
+    .selos span {
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      .numeros-row {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .num-item:nth-child(2) {
+        border-right: none
+      }
+
+      .receitas-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .identifica-grid {
+        grid-template-columns: 1fr;
+        gap: 36px
+      }
+
+      .beneficios-grid {
+        grid-template-columns: 1fr;
+        gap: 30px
+      }
+
+      .app-grid {
+        grid-template-columns: 1fr;
+        text-align: center
+      }
+
+      .app-text {
+        text-align: center
+      }
+
+      .app-features {
+        align-items: center
+      }
+
+      .autora-grid {
+        grid-template-columns: 1fr;
+        gap: 30px
+      }
+
+      .depo-card {
+        flex: 0 0 calc((100% - 18px) / 2)
+      }
+
+      .bonus-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px
+      }
+
+      .molhos-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    @media(max-width:600px) {
+      .receitas-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .depo-card {
+        flex: 0 0 100%
+      }
+
+      .preco-box {
+        padding: 30px 20px
+      }
+
+      .carousel-btn.prev {
+        left: 4px
+      }
+
+      .carousel-btn.next {
+        right: 4px
+      }
+
+      .sec {
+        padding: 60px 18px
+      }
+
+      .hero h1 {
+        font-size: 1.25rem
+      }
+
+      .molhos-grid {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+        margin: 0 auto
+      }
+    }
+  </style>
+
+  <!-- UTMify Pixel -->
+  <script>
+    window.pixelId = "6a0370951ec2400c8a738c65";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1241842971119463');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1241842971119463&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- UTMify UTM tracking -->
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer></script>
+</head>
+
+<body>
+
+  <div class="urgencia">
+    <span>🔥 OFERTA EXPIRA HOJE — </span>
+    <span id="timer">14:59</span>
+  </div>
+
+  <header class="header">
+    <img src="images/logo.jpg" alt="Salada de Mão — Receitas práticas no pote" class="logo-img" />
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="fi"><span class="destaque">60 RECEITAS</span> caseiras pra nunca mais ficar sem salada na sua geladeira
+        e <span class="murchar">SEM MURCHAR!</span></h1>
+      <img src="images/saladas-mosaico.webp" alt="Saladas no pote variadas — 60 receitas caseiras"
+        class="hero-imagem-principal fi d1" />
+      <div class="hero-cta-bloco fi d2">
+        <a href="#comprar" class="btn btn-verde btn-lg btn-pulso">QUERO AS RECEITAS! →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VOCÊ VAI ENCONTRAR -->
+  <section class="encontrar">
+    <div class="encontrar-inner">
+      <h2 class="encontrar-titulo fi">O QUE VOCÊ <strong>VAI ENCONTRAR:</strong></h2>
+      <div class="encontrar-lista fi d1">
+        <div class="encontrar-item"><span class="encontrar-icon">✓</span><span>Funciona com <strong>qualquer
+              pote</strong> que você já tem em casa</span></div>
+        <div class="encontrar-item"><span class="encontrar-icon">✚</span><span><strong>60 saladas deliciosas</strong>
+            pra você nunca mais enjoar</span></div>
+        <div class="encontrar-item"><span class="encontrar-icon">🥄</span><span><strong>Molhos irresistíveis</strong> —
+            caseiros e fáceis</span></div>
+        <div class="encontrar-item"><span class="encontrar-icon">✓</span><span><strong>O segredo das camadas</strong>
+            que mantém tudo fresco</span></div>
+        <div class="encontrar-item"><span class="encontrar-icon">✚</span><span>Conservação garantida de <strong>até 7
+              dias</strong></span></div>
+        <div class="encontrar-item"><span class="encontrar-icon">⏱</span><span><strong>Prontas em 30 minutos</strong>
+            pra semana inteira</span></div>
+        <div class="encontrar-item"><span class="encontrar-icon">☰</span><span><strong>Passo a passo</strong> simples —
+            não precisa ser chef</span></div>
+      </div>
+      <img src="images/geladeira-saladas.webp" alt="Saladas no pote organizadas e prontas na geladeira por 7 dias"
+        class="encontrar-imagem fi d2" />
+      <div class="encontrar-cta fi">
+        <a href="#comprar" class="btn btn-verde btn-lg btn-pulso">QUERO TUDO ISSO →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="antes-depois">
+    <div class="container-sm">
+      <h2 class="fi">Aconteceu comigo: emagreci <em>7kg</em> ao introduzir as saladas no pote. O seu corpo (e os seus
+        exames) agradecem.</h2>
+      <img src="images/antes-depois-milena.webp" alt="Antes e depois — emagreceu 7kg com as saladas no pote"
+        class="antes-depois-img fi d1" />
+      <div class="antes-depois-legenda fi d2">— Cibele Ramos, criadora do método</div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="container">
+      <div class="identifica-grid">
+        <div class="fi">
+          <span class="kicker fi" style="color:var(--laranja)">você se identifica?</span>
+          <h2 class="sec-titulo fi">Por que a maioria abandona a salada tradicional?</h2>
+          <img src="images/identifica-nuvens.webp" alt="Você se identifica?" class="identifica-nuvem-img" />
+        </div>
+        <div class="identifica-content">
+
+
+          <div class="ponte fi" style="margin-top:24px">
+            Se você marcou pelo menos uma, o <strong>Salada de Mão</strong> foi feito pra você — resolve tudo isso de
+            uma
+            vez, de forma simples, rápida e sem complicação.
+          </div>
+          <div style="margin-top:26px" class="fi">
+            <a href="#comprar" class="btn btn-outline">QUERO RESOLVER ISSO →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BENEFÍCIOS COM IMAGEM -->
+  <section class="beneficios">
+    <div class="beneficios-grid">
+      <div class="fi">
+        <img src="images/beneficios-lista.webp" alt="Benefícios do Salada de Mão" class="beneficios-img" />
+      </div>
+
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- RECEITAS -->
+  <section class="sec">
+    <div class="container">
+      <div class="sec-head fi center">
+        <span class="kicker">algumas das +60 receitas</span>
+        <h2 class="sec-titulo">Saladas que você vai querer todo dia</h2>
+        <p class="sec-sub">Cada receita vem com o molho ideal já incluso — caseiro, fácil e irresistível.</p>
+      </div>
+      <div class="receitas-grid">
+
+        <div class="r-card fi">
+          <div class="r-thumb"><img src="images/receita-refrescante.webp" alt="Salada refrescante" /></div>
+          <div class="r-nome">Salada Refrescante com Molho Cítrico</div>
+          <div class="r-kcal">Apenas 100 kcal</div>
+        </div>
+
+        <div class="r-card fi d1">
+          <div class="r-thumb"><img src="images/receita-caprese.webp" alt="Salada Caprese" /></div>
+          <div class="r-nome">Salada Caprese</div>
+          <div class="r-kcal">Apenas 120 kcal</div>
+        </div>
+
+        <div class="r-card fi d2">
+          <div class="r-thumb"><img src="images/receita-caesar.webp" alt="Salada Caesar" /></div>
+          <div class="r-nome">Salada Caesar com Molho Original</div>
+          <div class="r-kcal">Apenas 120 kcal</div>
+        </div>
+
+        <div class="r-card fi d3">
+          <div class="r-thumb"><img src="images/receita-bigmac.webp" alt="Salada Big Mac" /></div>
+          <div class="r-nome">Salada Big Mac com Molho Especial</div>
+          <div class="r-kcal">Apenas 180 kcal</div>
+        </div>
+
+        <div class="r-card fi">
+          <div class="r-thumb"><img src="images/receita-mediterranea.webp" alt="Salada Mediterrânea" /></div>
+          <div class="r-nome">Salada Mediterrânea com Molho Agridoce</div>
+          <div class="r-kcal">Apenas 120 kcal</div>
+        </div>
+
+        <div class="r-card fi d1">
+          <div class="r-thumb"><img src="images/receita-toscana.webp" alt="Salada Toscana" /></div>
+          <div class="r-nome">Salada Toscana com Molho Siciliano</div>
+          <div class="r-kcal">Apenas 130 kcal</div>
+        </div>
+
+        <div class="r-card fi d2">
+          <div class="r-thumb"><img src="images/receita-rustica.webp" alt="Salada Rústica" /></div>
+          <div class="r-nome">Salada Rústica com Mostarda e Mel</div>
+          <div class="r-kcal">Apenas 160 kcal</div>
+        </div>
+
+        <div class="r-card fi d3">
+          <div class="r-thumb"><img src="images/receita-quinoa.webp" alt="Salada Mediterrânea de Quinoa" /></div>
+          <div class="r-nome">Salada de Quinoa e Feta</div>
+          <div class="r-kcal">Apenas 160 kcal</div>
+        </div>
+
+        <div class="r-card fi">
+          <div class="r-thumb"><img src="images/receita-lentilhas.webp" alt="Salada de Lentilhas" /></div>
+          <div class="r-nome">Salada de Lentilhas à Francesa</div>
+          <div class="r-kcal">Apenas 160 kcal</div>
+        </div>
+
+        <div class="r-card fi d1">
+          <div class="r-thumb"><img src="images/receita-nice.webp" alt="Salada Nice" /></div>
+          <div class="r-nome">Salada à Moda de Nice</div>
+          <div class="r-kcal">Apenas 190 kcal</div>
+        </div>
+
+        <div class="r-card fi d2">
+          <div class="r-thumb"><img src="images/receita-queijocabra.webp" alt="Queijo de Cabra com Nozes" /></div>
+          <div class="r-nome">Queijo de Cabra Quente com Nozes</div>
+          <div class="r-kcal">Apenas 200 kcal</div>
+        </div>
+
+        <div class="r-card fi d3"
+          style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,var(--verde-bem),var(--verde-cla));border-color:var(--verde)">
+          <div style="font-size:2.6rem;margin-bottom:10px">🥗</div>
+          <div class="r-nome" style="font-size:.95rem">+ 49 outras receitas</div>
+          <div class="r-kcal" style="margin-top:4px">na sua área de membros</div>
+        </div>
+
+      </div>
+      <div style="text-align:center;margin-top:42px" class="fi">
+        <a href="#comprar" class="btn btn-principal btn-pulso">VER TODAS AS 60 RECEITAS →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOLHOS DESTAQUE -->
+  <section class="molhos-section">
+    <div class="container">
+      <div class="sec-head fi center">
+        <span class="kicker">e os molhos? muito mais que receitas</span>
+        <h2 class="sec-titulo">Os molhos especiais que mudam tudo</h2>
+        <p class="sec-sub">Caseiros, fáceis e irresistíveis — eles transformam a salada mais simples em algo que dá água
+          na boca.</p>
+      </div>
+      <div class="molhos-grid">
+        <div class="molho-card fi">
+          <img src="images/molho-especial.webp" alt="Molho especial cremoso" />
+          <div class="molho-label">molho especial cremoso</div>
+        </div>
+        <div class="molho-card fi d1">
+          <img src="images/molho-verde.webp" alt="Molho verde de ervas" />
+          <div class="molho-label">molho verde de ervas</div>
+        </div>
+        <div class="molho-card fi d2">
+          <img src="images/molho-laranja.webp" alt="Molho agridoce" />
+          <div class="molho-label">molho agridoce</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BÔNUS -->
+  <section class="sec sec-alt">
+    <div class="container">
+      <div class="sec-head fi center">
+        <span class="kicker">valor total: R$97,90</span>
+        <h2 class="sec-titulo">Receba também 4 bônus exclusivos — de graça</h2>
+        <p class="sec-sub">Incluídos no seu acesso sem nenhum custo adicional, válidos só enquanto a oferta estiver
+          ativa.</p>
+      </div>
+      <div class="bonus-grid">
+        <div class="bonus-card fi">
+          <span class="bonus-gratis-badge">GRÁTIS</span>
+          <div class="bonus-thumb"><img src="images/bonus-smoothie.webp" alt="Smoothies Detox" /></div>
+          <div class="bonus-body">
+            <h3>Bônus 1 — 30 receitas de Smoothies Detox</h3>
+            <p>Pra turbinar a imunidade e ter energia durante o dia</p>
+            <div class="bonus-pricing">
+              <span class="bonus-old">R$15,90</span>
+              <span class="bonus-free"><strong>GRÁTIS</strong> hoje ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bonus-card fi d1">
+          <span class="bonus-gratis-badge">GRÁTIS</span>
+          <div class="bonus-thumb"><img src="images/bonus-agua.webp" alt="Águas Saborizadas" /></div>
+          <div class="bonus-body">
+            <h3>Bônus 2 — 15 receitas de Águas Saborizadas</h3>
+            <p>Hidratação com sabor — sem açúcar e sem conservante</p>
+            <div class="bonus-pricing">
+              <span class="bonus-old">R$23,90</span>
+              <span class="bonus-free"><strong>GRÁTIS</strong> hoje ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bonus-card fi d2">
+          <span class="bonus-gratis-badge">GRÁTIS</span>
+          <div class="bonus-thumb"><img src="images/bonus-shot.webp" alt="Shots Matinais" /></div>
+          <div class="bonus-body">
+            <h3>Bônus 3 — 10 receitas de Shots Matinais</h3>
+            <p>Shots concentrados pra começar o dia no modo turbo</p>
+            <div class="bonus-pricing">
+              <span class="bonus-old">R$27,90</span>
+              <span class="bonus-free"><strong>GRÁTIS</strong> hoje ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bonus-card fi d3">
+          <span class="bonus-gratis-badge">GRÁTIS</span>
+          <div class="bonus-thumb"><img src="images/bonus-lista-compras.webp" alt="Listas de compras" /></div>
+          <div class="bonus-body">
+            <h3>Bônus 4 — Listas de compras prontas</h3>
+            <p>Uma lista pra cada tipo de salada — sem esquecer nada no mercado</p>
+            <div class="bonus-pricing">
+              <span class="bonus-old">R$29,90</span>
+              <span class="bonus-free"><strong>GRÁTIS</strong> hoje ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bonus-total-nota fi">
+        🎁 Bônus totais no valor de <s>R$97,90</s> APENAS HOJE, <strong>100% GRÁTIS</strong>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VÍDEO DE APRESENTAÇÃO DO APP -->
+  <section class="app-video-section">
+    <div class="app-video-wrap">
+      <video controls playsinline preload="metadata"
+        poster="images/mockup-app.png">
+        <source src="videos/tutorial-camadas.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo HTML5.
+      </video>
+    </div>
+  </section>
+
+  <!-- APP MOCKUP (mostrado cedo: Tudo na palma da mão) -->
+  <section class="app-section">
+    <div class="app-grid">
+      <div class="app-text">
+        <span class="kicker fi" style="color:var(--laranja)">Tudo na palma da mão</span>
+        <h2 class="fi">Tudo dentro de um aplicativo: as +60 receitas, molhos e bônus na palma da sua mão</h2>
+        <p class="fi">Acesso liberado na hora após a compra. Você abre o app já começa a montar suas saladas da semana.
+        </p>
+        <div class="app-features">
+          <div class="app-feature fi">Compatível com celular, tablet ou computador</div>
+          <div class="app-feature fi d1">Instruções fáceis pra baixar logo após a compra</div>
+          <div class="app-feature fi d2">Acesso vitalício às receitas e atualizações</div>
+          <div class="app-feature fi d3">Receba também por e-mail com orientações</div>
+        </div>
+        <a href="#comprar" class="btn btn-principal btn-pulso fi">QUERO ACESSAR O APP →</a>
+      </div>
+      <div class="app-mockup-wrap fi d2">
+        <img src="images/mockup-app.png" alt="App Salada de Mão com 60 receitas no celular" class="app-mockup-img" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CARROSSEL DEPOIMENTOS -->
+  <section class="depo-section">
+    <div class="depo-head fi">
+      <span class="kicker">resultados reais</span>
+      <h2 class="sec-titulo">O que as alunas estão dizendo</h2>
+      <p class="sec-sub">Mensagens reais de alunas que já estão usando o app e mudando a rotina alimentar.</p>
+    </div>
+    <div class="carousel" id="carousel">
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="track">
+          <div class="depo-card"><img src="images/wpp-1.webp" alt="Depoimento de aluna" /></div>
+          <div class="depo-card"><img src="images/wpp-2.webp" alt="Depoimento — vendendo saladas" /></div>
+          <div class="depo-card"><img src="images/wpp-3.webp" alt="Depoimento — agradecimento" /></div>
+          <div class="depo-card"><img src="images/wpp-4.webp" alt="Depoimento — 4 dias prontos" /></div>
+          <div class="depo-card"><img src="images/wpp-5.webp" alt="Depoimento — receitas gostosas" /></div>
+          <div class="depo-card"><img src="images/wpp-antes-depois.webp"
+              alt="Antes e depois — emagreceu com as saladas" /></div>
+        </div>
+      </div>
+      <button class="carousel-btn prev" id="prev" aria-label="Anterior">‹</button>
+      <button class="carousel-btn next" id="next" aria-label="Próximo">›</button>
+      <div class="carousel-dots" id="dots"></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;position:relative;z-index:2" class="fi">
+      <a href="#comprar" class="btn btn-principal btn-pulso">QUERO RESULTADOS ASSIM →</a>
+    </div>
+  </section>
+
+  <!-- PREÇO -->
+  <section class="preco-section" id="comprar">
+    <div class="container">
+      <div class="preco-head fi">
+        <img src="images/logo.jpg" alt="Salada de Mão" class="preco-logo" />
+        <p class="sec-sub" style="color:rgba(255,255,255,.8);margin:0 auto;text-align:center">
+
+        </p>
+      </div>
+      <div class="preco-box fi">
+        <div class="preco-ribbon">🔥 OFERTA ESPECIAL</div>
+        <h3>Salada de Mão — Pacote Completo (App + Bônus)</h3>
+        <p class="preco-box-sub">Acesso imediato pelo aplicativo</p>
+        <div class="preco-lista">
+          <div class="preco-item"><span class="p-ok">✓</span>60 receitas de saladas no pote</div>
+          <div class="preco-item"><span class="p-ok">✓</span>Molhos especiais para cada receita</div>
+          <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 1:</strong> 30 Smoothies Detox <small
+                style="color:#bbb"></small></span></div>
+          <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 2:</strong> 15 Águas Saborizadas <small
+                style="color:#bbb"></small></span></div>
+          <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 3:</strong> 10 Shots Matinais <small
+                style="color:#bbb"></small></span></div>
+          <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 4:</strong> Listas de compras prontas
+              <small style="color:#bbb"></small></span></div>
+          <div class="preco-item"><span class="p-ok">✓</span>Acesso imediato via app (celular, tablet ou PC)</div>
+          <div class="preco-item"><span class="p-ok">✓</span>Garantia de 15 dias</div>
+        </div>
+        <div class="preco-de">De R$87,00 + R$97,90(BÔNUS)</div>
+        <div class="preco-val">R$29,90</div>
+        <div class="preco-parcel"></div>
+        <a href="https://seguropagamentos.com.br/salada" class="btn btn-principal btn-lg btn-pulso" style="width:100%;justify-content:center">COMPRAR
+          AGORA</a>
+        <div class="garantia-nota">
+          🛡️ <strong> OFERTA EXPIRA HOJE</strong>
+        </div>
+        <div class="preco-trust">
+          <span>🔒 Pagamento seguro</span>
+          <span>✅ 15 dias de garantia</span>
+          <span>⚡ Acesso imediato</span>
+        </div>
+      </div>
+      <img src="images/bandeiras-pagamento.webp" alt="Aceitamos Visa, Mastercard, Amex, Pix, Hipercard e Elo"
+        class="bandeiras-img fi" />
+      <img src="images/selo-seguro.webp" alt="Site Seguro SSL Certificado" class="selo-seguro-img fi" />
+    </div>
+  </section>
+
+  <!-- AUTORA (após o preço) -->
+  <section class="sec">
+    <div class="container">
+      <div class="autora-grid">
+        <div class="autora-foto-wrap fi">
+          <img src="images/autora-cibele.png" alt="Cibele Ramos, criadora do Salada de Mão" />
+        </div>
+        <div class="autora-txt">
+          <span class="kicker fi">quem criou as receitas</span>
+          <h2 class="sec-titulo fi">A dona de casa que transformou salada em um hábito fácil</h2>
+          <p class="fi">Sou a <strong>Cibele Ramos</strong>, apaixonada por comida de verdade e praticidade na cozinha.
+            Há 6 anos ajudo pessoas a transformarem a rotina com soluções simples e fáceis de aplicar.</p>
+          <p class="fi">Minhas receitas viralizaram porque resolvem um problema real: todo mundo quer comer bem, mas
+            ninguém tem tempo de montar salada todo dia.</p>
+          <p class="fi">Reuni as <strong>+60 melhores receitas</strong> num único app pra você comer com prazer, sem
+            culpa e sem perder tempo. <strong>Eu mesma emagreci 7kg seguindo esse método.</strong></p>
+          <span class="autora-assinatura fi">Cibele Ramos ✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec sec-alt">
+    <div class="container-sm">
+      <div class="sec-head fi">
+        <span class="kicker">tire suas dúvidas</span>
+        <h2 class="sec-titulo">Perguntas frequentes</h2>
+      </div>
+      <div class="faq-lista fi">
+        <div class="faq-item">
+          <div class="faq-q">Como vou receber as receitas? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Assim que o pagamento for confirmado, você recebe acesso imediato no mesmo email que
+            adquiriu o Salada de Mão pra ver o conteúdo através do app. Você poderá abrir no computador, tablet ou até
+            mesmo baixar o app no seu celular de forma fácil e rápida. Além disso, receberá um e-mail com orientações
+            sobre o
+            aplicativo.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Tem garantia? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Sim! Tem garantia de 15 dias. O mínimo exigido por lei é 7 dias, mas confiamos tanto no
+            nosso trabalho que estendemos pra 15. Dentro desse prazo você pode cancelar a qualquer momento e solicitar o
+            dinheiro de volta, sem burocracia e sem perguntas — basta nos enviar um e-mail.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Precisa de algum pote especial? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Não precisa! Qualquer pote que você já tem em casa funciona perfeitamente. Pode ser de
+            plástico, de vidro, grande ou pequeno. O importante é que feche bem pra manter a salada fresca. Nada de
+            gastar dinheiro extra com equipamento.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">As receitas incluem os molhos? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Claro! As 60 receitas já incluem molhos próprios pra cada salada — todos caseiros, fáceis
+            de preparar e pensados pra deixar o sabor muito mais interessante. Com eles, você consegue variar de verdade
+            e não precisa mais depender daqueles molhos prontos do mercado, que além de caros, têm vários conservantes.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Quanto tempo dura a salada na geladeira? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Seguindo direitinho o método de camadas que eu ensino, a salada montada do jeito certo pode
+            ficar fresca de 5 a 7 dias na geladeira. Ou seja: você organiza tudo de uma vez no domingo e já deixa almoço
+            ou jantar saudável pronto pra semana inteira. Mais praticidade, menos desperdício.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Posso montar tudo no fim de semana? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Sim — é exatamente esse o método que eu ensino! A maioria das mulheres separa um tempinho
+            no sábado ou domingo e deixa as saladas da semana prontas em cerca de 30 minutos. Assim você não precisa
+            ficar lavando, picando e montando tudo do zero todos os dias.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Posso vender saladas no pote? Quanto posso cobrar? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Pode, sim! Muitas alunas aproveitam as receitas pra vender e fazer uma renda extra. O valor
+            costuma variar conforme a região, os ingredientes e o tamanho do pote, mas é comum ver saladas sendo
+            vendidas entre R$11 e R$16 — e em alguns casos até mais. É um jeito prático de transformar o que você
+            aprende em dinheiro no bolso.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">As receitas são fáceis de fazer? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Bem tranquilas! As receitas vêm com passo a passo bem explicado e instruções simples. Você
+            não precisa ser chef — se consegue picar, misturar e temperar, já dá conta. Tudo foi pensado pra quem tem a
+            rotina corrida e quer comer melhor sem complicação.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Os ingredientes são difíceis de encontrar? <span class="faq-seta">+</span></div>
+          <div class="faq-r">Não! As receitas são feitas com ingredientes simples e fáceis de achar, de mercado, feira
+            ou sacolão. Nada de coisas diferentonas ou caras que você nem sabe onde compra. É comida de verdade, com
+            ingredientes do dia a dia.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="sec" style="text-align:center;border-top:1px solid var(--borda)">
+    <div class="container">
+      <span class="kicker fi" style="display:block;text-align:center">sua alimentação muda hoje</span>
+      <h2 class="sec-titulo fi" style="max-width:580px;margin:0 auto 14px">Comece agora e tenha 60 receitas prontas esta
+        semana</h2>
+      <p style="color:var(--texto-3);margin-bottom:32px;font-size:.97rem" class="fi">Acesso imediato no app · 4 bônus
+        incluídos · sem complicação.</p>
+      <a href="#comprar" class="btn btn-principal btn-lg btn-pulso fi">QUERO MEU ACESSO AGORA →</a>
+      <p style="margin-top:14px;font-size:.78rem;color:var(--texto-3)" class="fi">🔒 Pagamento seguro &nbsp;·&nbsp; ✅ 15
+        dias de garantia &nbsp;·&nbsp; ⚡ Acesso imediato</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <img src="images/logo.jpg" alt="Salada de Mão" class="footer-logo-img" />
+    <div class="footer-links">
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos de Uso</a></a>
+    </div>
+    <div class="selos">
+      <span>🔒 Site Seguro</span>
+      <span>✅ Compra Garantida</span>
+      <span>⚡ Acesso Imediato</span>
+    </div>
+    <div class="footer-copy">Copyright Salada de Mão — Todos os direitos reservados.</div>
+  </footer>
+
+  <script>
+    // Countdown
+    (function () {
+      let t = 14 * 60 + 59;
+      const el = document.getElementById('timer');
+      function tick() {
+        if (t <= 0) t = 14 * 60 + 59;
+        const m = Math.floor(t / 60), s = t % 60;
+        el.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        t--;
+      }
+      tick(); setInterval(tick, 1000);
+    })();
+
+    // FAQ
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
+
+    // Fade in
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+    // Carrossel
+    (function () {
+      const track = document.getElementById('track');
+      const cards = track.querySelectorAll('.depo-card');
+      const prev = document.getElementById('prev');
+      const next = document.getElementById('next');
+      const dotsContainer = document.getElementById('dots');
+      let current = 0;
+      let perView = 3;
+      let autoTimer;
+
+      function getPerView() {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
+      }
+
+      function totalPages() {
+        return Math.max(1, cards.length - perView + 1);
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        const total = totalPages();
+        for (let i = 0; i < total; i++) {
+          const b = document.createElement('button');
+          b.className = 'carousel-dot' + (i === current ? ' active' : '');
+          b.setAttribute('aria-label', 'Ir para ' + (i + 1));
+          b.addEventListener('click', () => { current = i; update(); resetAuto(); });
+          dotsContainer.appendChild(b);
+        }
+      }
+
+      function update() {
+        perView = getPerView();
+        if (current > totalPages() - 1) current = 0;
+        const cardWidth = cards[0].offsetWidth + 18;
+        track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
+        document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function go(dir) {
+        const total = totalPages();
+        current = (current + dir + total) % total;
+        update();
+        resetAuto();
+      }
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => go(1), 5500);
+      }
+
+      prev.addEventListener('click', () => go(-1));
+      next.addEventListener('click', () => go(1));
+      window.addEventListener('resize', () => {
+        perView = getPerView();
+        buildDots();
+        update();
+      });
+
+      let startX = 0, deltaX = 0, dragging = false;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; clearInterval(autoTimer); }, { passive: true });
+      track.addEventListener('touchmove', e => { if (!dragging) return; deltaX = e.touches[0].clientX - startX; }, { passive: true });
+      track.addEventListener('touchend', () => {
+        if (Math.abs(deltaX) > 40) go(deltaX > 0 ? -1 : 1);
+        dragging = false; deltaX = 0;
+      });
+
+      perView = getPerView();
+      buildDots();
+      update();
+      resetAuto();
+    })();
+  </script>
+</body>
+
+</html>
