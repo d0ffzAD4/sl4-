@@ -184,10 +184,70 @@
     /* HERO (estilo centralizado, foco no produto) */
     .hero {
       background: linear-gradient(180deg, var(--verde-bem) 0%, var(--areia) 100%);
-      padding: 48px 22px 60px;
+      padding: 48px 22px 80px;
       position: relative;
       overflow: hidden;
       text-align: center
+    }
+
+    /* SETA SCROLL ANIMADA */
+    .scroll-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 32px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .3s;
+    }
+
+    .scroll-arrow:hover {
+      opacity: .7;
+    }
+
+    .scroll-arrow-label {
+      font-family: 'Caveat', cursive;
+      font-size: 1.05rem;
+      color: var(--verde);
+      font-weight: 600;
+      letter-spacing: .02em;
+      opacity: .75;
+    }
+
+    .scroll-arrow-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(74, 140, 58, .12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    .scroll-arrow-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--verde);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes scrollBounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(10px);
+        opacity: .55;
+      }
     }
 
     .hero-inner {
@@ -683,7 +743,8 @@
       max-width: 360px;
       margin: 0 auto;
       width: 100%;
-      padding-bottom: 177.78%; /* fallback 9:16 para navegadores sem aspect-ratio */
+      padding-bottom: 177.78%;
+      /* fallback 9:16 para navegadores sem aspect-ratio */
       height: 0;
       border-radius: 22px;
       overflow: hidden;
@@ -1580,28 +1641,27 @@
 
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1241842971119463');
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1241842971119463&ev=PageView&noscript=1" /></noscript>
+      src="https://www.facebook.com/tr?id=1241842971119463&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
 
   <!-- UTMify UTM tracking -->
-  <script
-    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-    data-utmify-prevent-xcod-sck
-    data-utmify-prevent-subids
-    async
-    defer></script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids
+    async defer></script>
 </head>
 
 <body>
@@ -1621,14 +1681,21 @@
         e <span class="murchar">SEM MURCHAR!</span></h1>
       <img src="images/saladas-mosaico.webp" alt="Saladas no pote variadas — 60 receitas caseiras"
         class="hero-imagem-principal fi d1" />
-      <div class="hero-cta-bloco fi d2">
-        <a href="#comprar" class="btn btn-verde btn-lg btn-pulso">QUERO AS RECEITAS! →</a>
-      </div>
+
+      <!-- Seta animada indicando scroll -->
+      <a href="#encontrar" class="scroll-arrow fi d2" aria-label="Rolar para ver mais">
+        <span class="scroll-arrow-label">veja mais ↓</span>
+        <span class="scroll-arrow-icon">
+          <svg viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </a>
     </div>
   </section>
 
   <!-- O QUE VOCÊ VAI ENCONTRAR -->
-  <section class="encontrar">
+  <section id="encontrar" class="encontrar">
     <div class="encontrar-inner">
       <h2 class="encontrar-titulo fi">O QUE VOCÊ <strong>VAI ENCONTRAR:</strong></h2>
       <div class="encontrar-lista fi d1">
@@ -1890,339 +1957,327 @@
   <!-- VÍDEO DE APRESENTAÇÃO DO APP -->
   <section class="app-video-section">
     <div class="app-video-wrap">
-      <video controls playsinline preload="metadata"
-        poster="images/mockup-app.png">
+      <video controls playsinline preload="metadata" poster="images/mockup-app.png">
         <source src="videos/tutorial-camadas.mp4" type="video/mp4" />
         Seu navegador não suporta vídeo HTML5.
       </video>
     </div>
-  </section>
 
-  <!-- APP MOCKUP (mostrado cedo: Tudo na palma da mão) -->
-  <section class="app-section">
-    <div class="app-grid">
-      <div class="app-text">
-        <span class="kicker fi" style="color:var(--laranja)">Tudo na palma da mão</span>
-        <h2 class="fi">Tudo dentro de um aplicativo: as +60 receitas, molhos e bônus na palma da sua mão</h2>
-        <p class="fi">Acesso liberado na hora após a compra. Você abre o app já começa a montar suas saladas da semana.
-        </p>
-        <div class="app-features">
-          <div class="app-feature fi">Compatível com celular, tablet ou computador</div>
-          <div class="app-feature fi d1">Instruções fáceis pra baixar logo após a compra</div>
-          <div class="app-feature fi d2">Acesso vitalício às receitas e atualizações</div>
-          <div class="app-feature fi d3">Receba também por e-mail com orientações</div>
-        </div>
-        <a href="#comprar" class="btn btn-principal btn-pulso fi">QUERO ACESSAR O APP →</a>
-      </div>
-      <div class="app-mockup-wrap fi d2">
-        <img src="images/mockup-app.png" alt="App Salada de Mão com 60 receitas no celular" class="app-mockup-img" />
-      </div>
 
-    </div>
-  </section>
-
-  <!-- CARROSSEL DEPOIMENTOS -->
-  <section class="depo-section">
-    <div class="depo-head fi">
-      <span class="kicker">resultados reais</span>
-      <h2 class="sec-titulo">O que as alunas estão dizendo</h2>
-      <p class="sec-sub">Mensagens reais de alunas que já estão usando o app e mudando a rotina alimentar.</p>
-    </div>
-    <div class="carousel" id="carousel">
-      <div class="carousel-track-wrap">
-        <div class="carousel-track" id="track">
-          <div class="depo-card"><img src="images/wpp-1.webp" alt="Depoimento de aluna" /></div>
-          <div class="depo-card"><img src="images/wpp-2.webp" alt="Depoimento — vendendo saladas" /></div>
-          <div class="depo-card"><img src="images/wpp-3.webp" alt="Depoimento — agradecimento" /></div>
-          <div class="depo-card"><img src="images/wpp-4.webp" alt="Depoimento — 4 dias prontos" /></div>
-          <div class="depo-card"><img src="images/wpp-5.webp" alt="Depoimento — receitas gostosas" /></div>
-          <div class="depo-card"><img src="images/wpp-antes-depois.webp"
-              alt="Antes e depois — emagreceu com as saladas" /></div>
-        </div>
+    <!-- CARROSSEL DEPOIMENTOS -->
+    <section class="depo-section">
+      <div class="depo-head fi">
+        <span class="kicker">resultados reais</span>
+        <h2 class="sec-titulo">O que as alunas estão dizendo</h2>
+        <p class="sec-sub">Mensagens reais de alunas que já estão usando o app e mudando a rotina alimentar.</p>
       </div>
-      <button class="carousel-btn prev" id="prev" aria-label="Anterior">‹</button>
-      <button class="carousel-btn next" id="next" aria-label="Próximo">›</button>
-      <div class="carousel-dots" id="dots"></div>
-    </div>
-    <div style="text-align:center;margin-top:36px;position:relative;z-index:2" class="fi">
-      <a href="#comprar" class="btn btn-principal btn-pulso">QUERO RESULTADOS ASSIM →</a>
-    </div>
-  </section>
-
-  <!-- PREÇO -->
-  <section class="preco-section" id="comprar">
-    <div class="container">
-      <div class="preco-head fi">
-        <img src="images/logo.jpg" alt="Salada de Mão" class="preco-logo" />
-        <p class="sec-sub" style="color:rgba(255,255,255,.8);margin:0 auto;text-align:center">
-
-        </p>
-      </div>
-      <div class="preco-box fi">
-        <div class="preco-ribbon">🔥 OFERTA ESPECIAL</div>
-        <h3>Salada de Mão — Pacote Completo (App + Bônus)</h3>
-        <p class="preco-box-sub">Acesso imediato pelo aplicativo</p>
-        <div class="preco-lista">
-          <div class="preco-item"><span class="p-ok">✓</span>60 receitas de saladas no pote</div>
-          <div class="preco-item"><span class="p-ok">✓</span>Molhos especiais para cada receita</div>
-          <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 1:</strong> 30 Smoothies Detox <small
-                style="color:#bbb"></small></span></div>
-          <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 2:</strong> 15 Águas Saborizadas <small
-                style="color:#bbb"></small></span></div>
-          <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 3:</strong> 10 Shots Matinais <small
-                style="color:#bbb"></small></span></div>
-          <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 4:</strong> Listas de compras prontas
-              <small style="color:#bbb"></small></span></div>
-          <div class="preco-item"><span class="p-ok">✓</span>Acesso imediato via app (celular, tablet ou PC)</div>
-          <div class="preco-item"><span class="p-ok">✓</span>Garantia de 15 dias</div>
-        </div>
-        <div class="preco-de">De R$87,00 + R$97,90(BÔNUS)</div>
-        <div class="preco-val">R$29,90</div>
-        <div class="preco-parcel"></div>
-        <a href="https://seguropagamentos.com.br/salada" class="btn btn-principal btn-lg btn-pulso" style="width:100%;justify-content:center">COMPRAR
-          AGORA</a>
-        <div class="garantia-nota">
-          🛡️ <strong> OFERTA EXPIRA HOJE</strong>
-        </div>
-        <div class="preco-trust">
-          <span>🔒 Pagamento seguro</span>
-          <span>✅ 15 dias de garantia</span>
-          <span>⚡ Acesso imediato</span>
-        </div>
-      </div>
-      <img src="images/bandeiras-pagamento.webp" alt="Aceitamos Visa, Mastercard, Amex, Pix, Hipercard e Elo"
-        class="bandeiras-img fi" />
-      <img src="images/selo-seguro.webp" alt="Site Seguro SSL Certificado" class="selo-seguro-img fi" />
-    </div>
-  </section>
-
-  <!-- AUTORA (após o preço) -->
-  <section class="sec">
-    <div class="container">
-      <div class="autora-grid">
-        <div class="autora-foto-wrap fi">
-          <img src="images/autora-cibele.png" alt="Cibele Ramos, criadora do Salada de Mão" />
-        </div>
-        <div class="autora-txt">
-          <span class="kicker fi">quem criou as receitas</span>
-          <h2 class="sec-titulo fi">A dona de casa que transformou salada em um hábito fácil</h2>
-          <p class="fi">Sou a <strong>Cibele Ramos</strong>, apaixonada por comida de verdade e praticidade na cozinha.
-            Há 6 anos ajudo pessoas a transformarem a rotina com soluções simples e fáceis de aplicar.</p>
-          <p class="fi">Minhas receitas viralizaram porque resolvem um problema real: todo mundo quer comer bem, mas
-            ninguém tem tempo de montar salada todo dia.</p>
-          <p class="fi">Reuni as <strong>+60 melhores receitas</strong> num único app pra você comer com prazer, sem
-            culpa e sem perder tempo. <strong>Eu mesma emagreci 7kg seguindo esse método.</strong></p>
-          <span class="autora-assinatura fi">Cibele Ramos ✦</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="sec sec-alt">
-    <div class="container-sm">
-      <div class="sec-head fi">
-        <span class="kicker">tire suas dúvidas</span>
-        <h2 class="sec-titulo">Perguntas frequentes</h2>
-      </div>
-      <div class="faq-lista fi">
-        <div class="faq-item">
-          <div class="faq-q">Como vou receber as receitas? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Assim que o pagamento for confirmado, você recebe acesso imediato no mesmo email que
-            adquiriu o Salada de Mão pra ver o conteúdo através do app. Você poderá abrir no computador, tablet ou até
-            mesmo baixar o app no seu celular de forma fácil e rápida. Além disso, receberá um e-mail com orientações
-            sobre o
-            aplicativo.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Tem garantia? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Sim! Tem garantia de 15 dias. O mínimo exigido por lei é 7 dias, mas confiamos tanto no
-            nosso trabalho que estendemos pra 15. Dentro desse prazo você pode cancelar a qualquer momento e solicitar o
-            dinheiro de volta, sem burocracia e sem perguntas — basta nos enviar um e-mail.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Precisa de algum pote especial? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Não precisa! Qualquer pote que você já tem em casa funciona perfeitamente. Pode ser de
-            plástico, de vidro, grande ou pequeno. O importante é que feche bem pra manter a salada fresca. Nada de
-            gastar dinheiro extra com equipamento.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">As receitas incluem os molhos? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Claro! As 60 receitas já incluem molhos próprios pra cada salada — todos caseiros, fáceis
-            de preparar e pensados pra deixar o sabor muito mais interessante. Com eles, você consegue variar de verdade
-            e não precisa mais depender daqueles molhos prontos do mercado, que além de caros, têm vários conservantes.
+      <div class="carousel" id="carousel">
+        <div class="carousel-track-wrap">
+          <div class="carousel-track" id="track">
+            <div class="depo-card"><img src="images/wpp-1.webp" alt="Depoimento de aluna" /></div>
+            <div class="depo-card"><img src="images/wpp-2.webp" alt="Depoimento — vendendo saladas" /></div>
+            <div class="depo-card"><img src="images/wpp-3.webp" alt="Depoimento — agradecimento" /></div>
+            <div class="depo-card"><img src="images/wpp-4.webp" alt="Depoimento — 4 dias prontos" /></div>
+            <div class="depo-card"><img src="images/wpp-5.webp" alt="Depoimento — receitas gostosas" /></div>
+            <div class="depo-card"><img src="images/wpp-antes-depois.webp"
+                alt="Antes e depois — emagreceu com as saladas" /></div>
           </div>
         </div>
-        <div class="faq-item">
-          <div class="faq-q">Quanto tempo dura a salada na geladeira? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Seguindo direitinho o método de camadas que eu ensino, a salada montada do jeito certo pode
-            ficar fresca de 5 a 7 dias na geladeira. Ou seja: você organiza tudo de uma vez no domingo e já deixa almoço
-            ou jantar saudável pronto pra semana inteira. Mais praticidade, menos desperdício.</div>
+        <button class="carousel-btn prev" id="prev" aria-label="Anterior">‹</button>
+        <button class="carousel-btn next" id="next" aria-label="Próximo">›</button>
+        <div class="carousel-dots" id="dots"></div>
+      </div>
+      <div style="text-align:center;margin-top:36px;position:relative;z-index:2" class="fi">
+        <a href="#comprar" class="btn btn-principal btn-pulso">QUERO RESULTADOS ASSIM →</a>
+      </div>
+    </section>
+
+    <!-- PREÇO -->
+    <section class="preco-section" id="comprar">
+      <div class="container">
+        <div class="preco-head fi">
+          <img src="images/logo.jpg" alt="Salada de Mão" class="preco-logo" />
+          <p class="sec-sub" style="color:rgba(255,255,255,.8);margin:0 auto;text-align:center">
+
+          </p>
         </div>
-        <div class="faq-item">
-          <div class="faq-q">Posso montar tudo no fim de semana? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Sim — é exatamente esse o método que eu ensino! A maioria das mulheres separa um tempinho
-            no sábado ou domingo e deixa as saladas da semana prontas em cerca de 30 minutos. Assim você não precisa
-            ficar lavando, picando e montando tudo do zero todos os dias.</div>
+        <div class="preco-box fi">
+          <div class="preco-ribbon">🔥 OFERTA ESPECIAL</div>
+          <h3>Salada de Mão — Pacote Completo (App + Bônus)</h3>
+          <p class="preco-box-sub">Acesso imediato pelo aplicativo</p>
+          <div class="preco-lista">
+            <div class="preco-item"><span class="p-ok">✓</span>60 receitas de saladas no pote</div>
+            <div class="preco-item"><span class="p-ok">✓</span>Molhos especiais para cada receita</div>
+            <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 1:</strong> 30 Smoothies Detox <small
+                  style="color:#bbb"></small></span></div>
+            <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 2:</strong> 15 Águas Saborizadas
+                <small style="color:#bbb"></small></span></div>
+            <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 3:</strong> 10 Shots Matinais <small
+                  style="color:#bbb"></small></span></div>
+            <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 4:</strong> Listas de compras prontas
+                <small style="color:#bbb"></small></span></div>
+            <div class="preco-item"><span class="p-ok">✓</span>Acesso imediato via app (celular, tablet ou PC)</div>
+            <div class="preco-item"><span class="p-ok">✓</span>Garantia de 15 dias</div>
+          </div>
+          <div class="preco-de">De R$87,00 + R$97,90(BÔNUS)</div>
+          <div class="preco-val">R$29,90</div>
+          <div class="preco-parcel"></div>
+          <a href="https://seguropagamentos.com.br/salada" class="btn btn-principal btn-lg btn-pulso"
+            style="width:100%;justify-content:center">COMPRAR
+            AGORA</a>
+          <div class="garantia-nota">
+            🛡️ <strong> OFERTA EXPIRA HOJE</strong>
+          </div>
+          <div class="preco-trust">
+            <span>🔒 Pagamento seguro</span>
+            <span>✅ 15 dias de garantia</span>
+            <span>⚡ Acesso imediato</span>
+          </div>
         </div>
-        <div class="faq-item">
-          <div class="faq-q">Posso vender saladas no pote? Quanto posso cobrar? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Pode, sim! Muitas alunas aproveitam as receitas pra vender e fazer uma renda extra. O valor
-            costuma variar conforme a região, os ingredientes e o tamanho do pote, mas é comum ver saladas sendo
-            vendidas entre R$11 e R$16 — e em alguns casos até mais. É um jeito prático de transformar o que você
-            aprende em dinheiro no bolso.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">As receitas são fáceis de fazer? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Bem tranquilas! As receitas vêm com passo a passo bem explicado e instruções simples. Você
-            não precisa ser chef — se consegue picar, misturar e temperar, já dá conta. Tudo foi pensado pra quem tem a
-            rotina corrida e quer comer melhor sem complicação.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Os ingredientes são difíceis de encontrar? <span class="faq-seta">+</span></div>
-          <div class="faq-r">Não! As receitas são feitas com ingredientes simples e fáceis de achar, de mercado, feira
-            ou sacolão. Nada de coisas diferentonas ou caras que você nem sabe onde compra. É comida de verdade, com
-            ingredientes do dia a dia.</div>
+        <img src="images/bandeiras-pagamento.webp" alt="Aceitamos Visa, Mastercard, Amex, Pix, Hipercard e Elo"
+          class="bandeiras-img fi" />
+        <img src="images/selo-seguro.webp" alt="Site Seguro SSL Certificado" class="selo-seguro-img fi" />
+      </div>
+    </section>
+
+    <!-- AUTORA (após o preço) -->
+    <section class="sec">
+      <div class="container">
+        <div class="autora-grid">
+          <div class="autora-foto-wrap fi">
+            <img src="images/autora-cibele.png" alt="Cibele Ramos, criadora do Salada de Mão" />
+          </div>
+          <div class="autora-txt">
+            <span class="kicker fi">quem criou as receitas</span>
+            <h2 class="sec-titulo fi">A dona de casa que transformou salada em um hábito fácil</h2>
+            <p class="fi">Sou a <strong>Cibele Ramos</strong>, apaixonada por comida de verdade e praticidade na
+              cozinha.
+              Há 6 anos ajudo pessoas a transformarem a rotina com soluções simples e fáceis de aplicar.</p>
+            <p class="fi">Minhas receitas viralizaram porque resolvem um problema real: todo mundo quer comer bem, mas
+              ninguém tem tempo de montar salada todo dia.</p>
+            <p class="fi">Reuni as <strong>+60 melhores receitas</strong> num único app pra você comer com prazer, sem
+              culpa e sem perder tempo. <strong>Eu mesma emagreci 7kg seguindo esse método.</strong></p>
+            <span class="autora-assinatura fi">Cibele Ramos ✦</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA FINAL -->
-  <section class="sec" style="text-align:center;border-top:1px solid var(--borda)">
-    <div class="container">
-      <span class="kicker fi" style="display:block;text-align:center">sua alimentação muda hoje</span>
-      <h2 class="sec-titulo fi" style="max-width:580px;margin:0 auto 14px">Comece agora e tenha 60 receitas prontas esta
-        semana</h2>
-      <p style="color:var(--texto-3);margin-bottom:32px;font-size:.97rem" class="fi">Acesso imediato no app · 4 bônus
-        incluídos · sem complicação.</p>
-      <a href="#comprar" class="btn btn-principal btn-lg btn-pulso fi">QUERO MEU ACESSO AGORA →</a>
-      <p style="margin-top:14px;font-size:.78rem;color:var(--texto-3)" class="fi">🔒 Pagamento seguro &nbsp;·&nbsp; ✅ 15
-        dias de garantia &nbsp;·&nbsp; ⚡ Acesso imediato</p>
-    </div>
-  </section>
+    <!-- FAQ -->
+    <section class="sec sec-alt">
+      <div class="container-sm">
+        <div class="sec-head fi">
+          <span class="kicker">tire suas dúvidas</span>
+          <h2 class="sec-titulo">Perguntas frequentes</h2>
+        </div>
+        <div class="faq-lista fi">
+          <div class="faq-item">
+            <div class="faq-q">Como vou receber as receitas? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Assim que o pagamento for confirmado, você recebe acesso imediato no mesmo email que
+              adquiriu o Salada de Mão pra ver o conteúdo através do app. Você poderá abrir no computador, tablet ou até
+              mesmo baixar o app no seu celular de forma fácil e rápida. Além disso, receberá um e-mail com orientações
+              sobre o
+              aplicativo.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Tem garantia? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Sim! Tem garantia de 15 dias. O mínimo exigido por lei é 7 dias, mas confiamos tanto no
+              nosso trabalho que estendemos pra 15. Dentro desse prazo você pode cancelar a qualquer momento e solicitar
+              o
+              dinheiro de volta, sem burocracia e sem perguntas — basta nos enviar um e-mail.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Precisa de algum pote especial? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Não precisa! Qualquer pote que você já tem em casa funciona perfeitamente. Pode ser de
+              plástico, de vidro, grande ou pequeno. O importante é que feche bem pra manter a salada fresca. Nada de
+              gastar dinheiro extra com equipamento.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">As receitas incluem os molhos? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Claro! As 60 receitas já incluem molhos próprios pra cada salada — todos caseiros, fáceis
+              de preparar e pensados pra deixar o sabor muito mais interessante. Com eles, você consegue variar de
+              verdade
+              e não precisa mais depender daqueles molhos prontos do mercado, que além de caros, têm vários
+              conservantes.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Quanto tempo dura a salada na geladeira? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Seguindo direitinho o método de camadas que eu ensino, a salada montada do jeito certo
+              pode
+              ficar fresca de 5 a 7 dias na geladeira. Ou seja: você organiza tudo de uma vez no domingo e já deixa
+              almoço
+              ou jantar saudável pronto pra semana inteira. Mais praticidade, menos desperdício.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Posso montar tudo no fim de semana? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Sim — é exatamente esse o método que eu ensino! A maioria das mulheres separa um tempinho
+              no sábado ou domingo e deixa as saladas da semana prontas em cerca de 30 minutos. Assim você não precisa
+              ficar lavando, picando e montando tudo do zero todos os dias.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Posso vender saladas no pote? Quanto posso cobrar? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Pode, sim! Muitas alunas aproveitam as receitas pra vender e fazer uma renda extra. O
+              valor
+              costuma variar conforme a região, os ingredientes e o tamanho do pote, mas é comum ver saladas sendo
+              vendidas entre R$11 e R$16 — e em alguns casos até mais. É um jeito prático de transformar o que você
+              aprende em dinheiro no bolso.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">As receitas são fáceis de fazer? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Bem tranquilas! As receitas vêm com passo a passo bem explicado e instruções simples.
+              Você
+              não precisa ser chef — se consegue picar, misturar e temperar, já dá conta. Tudo foi pensado pra quem tem
+              a
+              rotina corrida e quer comer melhor sem complicação.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Os ingredientes são difíceis de encontrar? <span class="faq-seta">+</span></div>
+            <div class="faq-r">Não! As receitas são feitas com ingredientes simples e fáceis de achar, de mercado, feira
+              ou sacolão. Nada de coisas diferentonas ou caras que você nem sabe onde compra. É comida de verdade, com
+              ingredientes do dia a dia.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer class="footer">
-    <img src="images/logo.jpg" alt="Salada de Mão" class="footer-logo-img" />
-    <div class="footer-links">
-      <a href="#">Política de Privacidade</a>
-      <a href="#">Termos de Uso</a></a>
-    </div>
-    <div class="selos">
-      <span>🔒 Site Seguro</span>
-      <span>✅ Compra Garantida</span>
-      <span>⚡ Acesso Imediato</span>
-    </div>
-    <div class="footer-copy">Copyright Salada de Mão — Todos os direitos reservados.</div>
-  </footer>
+    <!-- CTA FINAL -->
+    <section class="sec" style="text-align:center;border-top:1px solid var(--borda)">
+      <div class="container">
+        <span class="kicker fi" style="display:block;text-align:center">sua alimentação muda hoje</span>
+        <h2 class="sec-titulo fi" style="max-width:580px;margin:0 auto 14px">Comece agora e tenha 60 receitas prontas
+          esta
+          semana</h2>
+        <p style="color:var(--texto-3);margin-bottom:32px;font-size:.97rem" class="fi">Acesso imediato no app · 4 bônus
+          incluídos · sem complicação.</p>
+        <a href="#comprar" class="btn btn-principal btn-lg btn-pulso fi">QUERO MEU ACESSO AGORA →</a>
+        <p style="margin-top:14px;font-size:.78rem;color:var(--texto-3)" class="fi">🔒 Pagamento seguro &nbsp;·&nbsp; ✅
+          15
+          dias de garantia &nbsp;·&nbsp; ⚡ Acesso imediato</p>
+      </div>
+    </section>
 
-  <script>
-    // Countdown
-    (function () {
-      let t = 14 * 60 + 59;
-      const el = document.getElementById('timer');
-      function tick() {
-        if (t <= 0) t = 14 * 60 + 59;
-        const m = Math.floor(t / 60), s = t % 60;
-        el.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-        t--;
-      }
-      tick(); setInterval(tick, 1000);
-    })();
+    <footer class="footer">
+      <img src="images/logo.jpg" alt="Salada de Mão" class="footer-logo-img" />
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a></a>
+      </div>
+      <div class="selos">
+        <span>🔒 Site Seguro</span>
+        <span>✅ Compra Garantida</span>
+        <span>⚡ Acesso Imediato</span>
+      </div>
+      <div class="footer-copy">Copyright Salada de Mão — Todos os direitos reservados.</div>
+    </footer>
 
-    // FAQ
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const open = item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-        if (!open) item.classList.add('open');
-      });
-    });
-
-    // Fade in
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-    }, { threshold: 0.07 });
-    document.querySelectorAll('.fi').forEach(el => obs.observe(el));
-
-    // Carrossel
-    (function () {
-      const track = document.getElementById('track');
-      const cards = track.querySelectorAll('.depo-card');
-      const prev = document.getElementById('prev');
-      const next = document.getElementById('next');
-      const dotsContainer = document.getElementById('dots');
-      let current = 0;
-      let perView = 3;
-      let autoTimer;
-
-      function getPerView() {
-        if (window.innerWidth <= 600) return 1;
-        if (window.innerWidth <= 900) return 2;
-        return 3;
-      }
-
-      function totalPages() {
-        return Math.max(1, cards.length - perView + 1);
-      }
-
-      function buildDots() {
-        dotsContainer.innerHTML = '';
-        const total = totalPages();
-        for (let i = 0; i < total; i++) {
-          const b = document.createElement('button');
-          b.className = 'carousel-dot' + (i === current ? ' active' : '');
-          b.setAttribute('aria-label', 'Ir para ' + (i + 1));
-          b.addEventListener('click', () => { current = i; update(); resetAuto(); });
-          dotsContainer.appendChild(b);
+    <script>
+      // Countdown
+      (function () {
+        let t = 14 * 60 + 59;
+        const el = document.getElementById('timer');
+        function tick() {
+          if (t <= 0) t = 14 * 60 + 59;
+          const m = Math.floor(t / 60), s = t % 60;
+          el.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+          t--;
         }
-      }
+        tick(); setInterval(tick, 1000);
+      })();
 
-      function update() {
-        perView = getPerView();
-        if (current > totalPages() - 1) current = 0;
-        const cardWidth = cards[0].offsetWidth + 18;
-        track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
-        document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-          d.classList.toggle('active', i === current);
+      // FAQ
+      document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+          const item = q.parentElement;
+          const open = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+          if (!open) item.classList.add('open');
         });
-      }
+      });
 
-      function go(dir) {
-        const total = totalPages();
-        current = (current + dir + total) % total;
-        update();
-        resetAuto();
-      }
+      // Fade in
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+      }, { threshold: 0.07 });
+      document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 
-      function resetAuto() {
-        clearInterval(autoTimer);
-        autoTimer = setInterval(() => go(1), 5500);
-      }
+      // Carrossel
+      (function () {
+        const track = document.getElementById('track');
+        const cards = track.querySelectorAll('.depo-card');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        const dotsContainer = document.getElementById('dots');
+        let current = 0;
+        let perView = 3;
+        let autoTimer;
 
-      prev.addEventListener('click', () => go(-1));
-      next.addEventListener('click', () => go(1));
-      window.addEventListener('resize', () => {
+        function getPerView() {
+          if (window.innerWidth <= 600) return 1;
+          if (window.innerWidth <= 900) return 2;
+          return 3;
+        }
+
+        function totalPages() {
+          return Math.max(1, cards.length - perView + 1);
+        }
+
+        function buildDots() {
+          dotsContainer.innerHTML = '';
+          const total = totalPages();
+          for (let i = 0; i < total; i++) {
+            const b = document.createElement('button');
+            b.className = 'carousel-dot' + (i === current ? ' active' : '');
+            b.setAttribute('aria-label', 'Ir para ' + (i + 1));
+            b.addEventListener('click', () => { current = i; update(); resetAuto(); });
+            dotsContainer.appendChild(b);
+          }
+        }
+
+        function update() {
+          perView = getPerView();
+          if (current > totalPages() - 1) current = 0;
+          const cardWidth = cards[0].offsetWidth + 18;
+          track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
+          document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+          });
+        }
+
+        function go(dir) {
+          const total = totalPages();
+          current = (current + dir + total) % total;
+          update();
+          resetAuto();
+        }
+
+        function resetAuto() {
+          clearInterval(autoTimer);
+          autoTimer = setInterval(() => go(1), 5500);
+        }
+
+        prev.addEventListener('click', () => go(-1));
+        next.addEventListener('click', () => go(1));
+        window.addEventListener('resize', () => {
+          perView = getPerView();
+          buildDots();
+          update();
+        });
+
+        let startX = 0, deltaX = 0, dragging = false;
+        track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; clearInterval(autoTimer); }, { passive: true });
+        track.addEventListener('touchmove', e => { if (!dragging) return; deltaX = e.touches[0].clientX - startX; }, { passive: true });
+        track.addEventListener('touchend', () => {
+          if (Math.abs(deltaX) > 40) go(deltaX > 0 ? -1 : 1);
+          dragging = false; deltaX = 0;
+        });
+
         perView = getPerView();
         buildDots();
         update();
-      });
-
-      let startX = 0, deltaX = 0, dragging = false;
-      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; dragging = true; clearInterval(autoTimer); }, { passive: true });
-      track.addEventListener('touchmove', e => { if (!dragging) return; deltaX = e.touches[0].clientX - startX; }, { passive: true });
-      track.addEventListener('touchend', () => {
-        if (Math.abs(deltaX) > 40) go(deltaX > 0 ? -1 : 1);
-        dragging = false; deltaX = 0;
-      });
-
-      perView = getPerView();
-      buildDots();
-      update();
-      resetAuto();
-    })();
-  </script>
+        resetAuto();
+      })();
+    </script>
 </body>
 
 </html>
