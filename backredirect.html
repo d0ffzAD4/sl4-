@@ -1069,7 +1069,7 @@
         <span class="valor-hoje">Hoje: apenas R$19,90</span>
       </div>
       <div class="kit-cta-area">
-        <a href="https://go.perfectpay.com.br/PPU38CQC5A6" class="btn" data-cta="meio" rel="nofollow">
+        <a href="https://go.perfectpay.com.br/PPU38CQC5A6?sck=backredirect" class="btn" data-cta="meio" rel="nofollow">
           GARANTIR MEU ACESSO IMEDIATO →
         </a>
         <div class="kit-trust-icons">
@@ -1127,9 +1127,18 @@
     <p>Este produto não substitui orientação médica ou nutricional profissional.</p>
   </footer>
 
-  <!-- Meta Pixel placeholder -->
+  <!-- UTMify Pixel -->
   <script>
-    // === META PIXEL ===
+    window.pixelId = "6a0370951ec2400c8a738c65";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
@@ -1137,17 +1146,18 @@
       }; if (!f._fbq) f._fbq = n;
       n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
       t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
-    }(window,
-      document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-    // SUBSTITUA PIXEL_ID_AQUI pelo seu Pixel ID da Meta
-    fbq('init', 'PIXEL_ID_AQUI');
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1241842971119463');
     fbq('track', 'PageView');
     fbq('trackCustom', 'ViewBackredirect');
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=PIXEL_ID_AQUI&ev=PageView&noscript=1" alt="" />
-  </noscript>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1241842971119463&ev=PageView&noscript=1" alt="" /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- UTMify UTMs -->
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids async defer></script>
 
   <script>
     (function () {
