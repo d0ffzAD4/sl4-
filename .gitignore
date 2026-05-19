@@ -1,0 +1,16 @@
+# Claude/IDE
+.claude/
+.vscode/
+.idea/
+
+# Members area (repo separado: entregavel-salada)
+app/
+
+# OS / sistema
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Logs e temporários
+*.log
+*.tmp

@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="theme-color" content="#2d8659" />
+  <title>Desconto exclusivo — Salada de Mão por R$19,90 (pacote completo)</title>
+  <meta name="description"
+    content="Antes de sair: leve o pacote completo Salada de Mão com 50% de desconto. 60 receitas, 4 bônus e garantia de 7 dias por R$19,90." />
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg" />
+  <link rel="apple-touch-icon" href="images/logo.jpg" />
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+  <link rel="preconnect" href="https://www.facebook.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --verde: #2d8659;
+      --verde-esc: #20603f;
+      --verde-cla: #e6f1ea;
+      --amarelo: #fdcb2e;
+      --amarelo-esc: #e5b522;
+      --vermelho: #d63031;
+      --vermelho-cla: #fde7e7;
+      --creme: #fefcf7;
+      --bege: #f5f0e3;
+      --texto: #1f1d18;
+      --texto-2: #4a463a;
+      --texto-3: #8a8270;
+      --cinza-cla: #e8e6df;
+      --borda: #e3dcc8;
+      --sombra: rgba(45, 134, 89, .12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--creme);
+      color: var(--texto);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Lora', serif;
+      line-height: 1.25;
+      color: var(--texto);
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* BARRA URGÊNCIA */
+    .urgencia {
+      background: var(--verde-esc);
+      color: #fff;
+      text-align: center;
+      padding: 11px 18px;
+      font-size: .85rem;
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .dot-pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--vermelho);
+      display: inline-block;
+      animation: dotPulse 1.4s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes dotPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(214, 48, 49, .55);
+      }
+
+      50% {
+        opacity: .55;
+        box-shadow: 0 0 0 6px rgba(214, 48, 49, 0);
+      }
+    }
+
+    /* BANNER ÚLTIMA CHANCE (popstate) */
+    .ultima-chance-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--vermelho);
+      color: #fff;
+      text-align: center;
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: .95rem;
+      z-index: 999;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .2);
+      transform: translateY(-100%);
+      transition: transform .35s ease;
+    }
+
+    .ultima-chance-banner.show {
+      transform: translateY(0);
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--verde-cla);
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--borda);
+      text-align: center;
+    }
+
+    .logo-img {
+      max-width: 200px;
+      height: auto;
+      margin: 0 auto;
+      mix-blend-mode: multiply;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(180deg, var(--verde-cla) 0%, var(--creme) 100%);
+      padding: 36px 20px 44px;
+      text-align: center;
+    }
+
+    .tag-espera {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--vermelho-cla);
+      color: var(--vermelho);
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 7px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.5rem, 5vw, 2.05rem);
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: -.01em;
+      line-height: 1.25;
+      max-width: 560px;
+      margin: 0 auto 14px;
+    }
+
+    .hero h1 .destaque {
+      color: var(--verde-esc);
+      background: linear-gradient(180deg, transparent 62%, rgba(253, 203, 46, .55) 62%);
+      padding: 0 3px;
+    }
+
+    .hero-sub {
+      font-size: 1.02rem;
+      color: var(--texto-2);
+      max-width: 520px;
+      margin: 0 auto 26px;
+      line-height: 1.55;
+    }
+
+    .hero-sub strong {
+      color: var(--verde-esc);
+      font-weight: 700;
+    }
+
+    /* CTA */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--vermelho);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      text-decoration: none;
+      padding: 18px 28px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(214, 48, 49, .32);
+      transition: transform .18s ease, box-shadow .18s ease;
+      animation: pulseCta 4s ease-in-out infinite;
+      width: 100%;
+      max-width: 460px;
+      min-height: 56px;
+      line-height: 1.2;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(214, 48, 49, .42);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    @keyframes pulseCta {
+
+      0%,
+      100% {
+        box-shadow: 0 8px 22px rgba(214, 48, 49, .32);
+      }
+
+      50% {
+        box-shadow: 0 8px 22px rgba(214, 48, 49, .55), 0 0 0 10px rgba(214, 48, 49, .08);
+      }
+    }
+
+    .btn-verde {
+      background: var(--verde);
+      box-shadow: 0 8px 22px rgba(45, 134, 89, .3);
+    }
+
+    .btn-verde:hover {
+      box-shadow: 0 12px 28px rgba(45, 134, 89, .4);
+    }
+
+    .trustline {
+      font-size: .8rem;
+      color: var(--texto-3);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* MINI PROVA SOCIAL (acima da dobra) */
+    .mini-prova {
+      margin: 22px auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      max-width: 460px;
+    }
+
+    .avatares {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--creme);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: .9rem;
+      color: #fff;
+      margin-left: -10px;
+    }
+
+    .avatar:first-child {
+      margin-left: 0;
+    }
+
+    .avatar.a1 {
+      background: linear-gradient(135deg, #e87e2e, #f5c842);
+    }
+
+    .avatar.a2 {
+      background: linear-gradient(135deg, #2d8659, #4ab87a);
+    }
+
+    .avatar.a3 {
+      background: linear-gradient(135deg, #c0392b, #e74c3c);
+    }
+
+    .estrelas {
+      color: var(--amarelo);
+      font-size: 1.05rem;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .mini-prova-txt {
+      font-size: .88rem;
+      color: var(--texto-2);
+      font-weight: 500;
+    }
+
+    .mini-prova-txt strong {
+      color: var(--verde-esc);
+      font-weight: 700;
+    }
+
+    /* SEÇÃO */
+    .sec {
+      padding: 50px 20px;
+    }
+
+    .sec-alt {
+      background: var(--bege);
+    }
+
+    .sec h2 {
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      text-align: center;
+      max-width: 540px;
+      margin: 0 auto 22px;
+      line-height: 1.3;
+    }
+
+    .sec h2 em {
+      font-style: normal;
+      color: var(--verde-esc);
+    }
+
+    /* QUEBRA DE OBJEÇÃO + PREÇO COMPARATIVO */
+    .objecao-intro {
+      font-size: 1rem;
+      color: var(--texto-2);
+      text-align: center;
+      max-width: 540px;
+      margin: 0 auto 28px;
+      line-height: 1.65;
+    }
+
+    .preco-comparativo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .preco-card {
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      padding: 22px 18px;
+      text-align: center;
+      position: relative;
+    }
+
+    .preco-card.riscado {
+      opacity: .75;
+    }
+
+    .preco-card.riscado .preco-val {
+      text-decoration: line-through;
+      color: var(--texto-3);
+    }
+
+    .preco-card.destaque {
+      border-color: var(--verde);
+      border-width: 2px;
+      box-shadow: 0 8px 24px var(--sombra);
+    }
+
+    .preco-card.destaque::before {
+      content: 'VOCÊ LEVA';
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--amarelo);
+      color: var(--texto);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .preco-label {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--texto-3);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+
+    .preco-val {
+      font-family: 'Lora', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--verde-esc);
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .preco-card.destaque .preco-val {
+      font-size: 2.2rem;
+      color: var(--vermelho);
+    }
+
+    .preco-desc {
+      font-size: .82rem;
+      color: var(--texto-3);
+      margin-top: 6px;
+    }
+
+    /* TERCEIRA REFERÊNCIA DE PREÇO */
+    .preco-contexto {
+      text-align: center;
+      max-width: 540px;
+      margin: 22px auto 0;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--texto-3);
+      line-height: 1.6;
+    }
+
+    /* VOCÊ vs ELAS */
+    .vs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .vs-col {
+      border-radius: 14px;
+      padding: 22px 18px;
+    }
+
+    .vs-col.ruim {
+      background: #f1efea;
+      opacity: .85;
+    }
+
+    .vs-col.boa {
+      background: var(--verde);
+      color: #fff;
+      box-shadow: 0 10px 26px var(--sombra);
+    }
+
+    .vs-col h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .vs-col.ruim h3 {
+      color: var(--texto-2);
+    }
+
+    .vs-col.boa h3 {
+      color: var(--amarelo);
+    }
+
+    .vs-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .vs-list li {
+      font-size: .92rem;
+      line-height: 1.45;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .vs-col.ruim .vs-list li {
+      color: #6e6a5e;
+    }
+
+    .vs-col.boa .vs-list li {
+      color: #fff;
+    }
+
+    .vs-ico {
+      flex-shrink: 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* O QUE VAI LEVAR */
+    .kit-box {
+      background: #fff;
+      border: 2px solid var(--verde);
+      border-radius: 20px;
+      padding: 32px 24px 28px;
+      max-width: 540px;
+      margin: 0 auto;
+      box-shadow: 0 12px 40px var(--sombra), 0 0 0 4px var(--verde-cla);
+      position: relative;
+    }
+
+    .kit-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--vermelho);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(214, 48, 49, .3);
+      animation: pulseBadge 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseBadge {
+
+      0%,
+      100% {
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        transform: translateX(-50%) scale(1.05);
+      }
+    }
+
+    .kit-titulo {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--verde-esc);
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 6px;
+    }
+
+    .kit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .kit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .98rem;
+      color: var(--texto-2);
+      line-height: 1.45;
+    }
+
+    .kit-check {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--verde);
+      color: #fff;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      font-weight: 800;
+      margin-top: 1px;
+    }
+
+    .kit-list strong {
+      color: var(--verde-esc);
+      font-weight: 700;
+    }
+
+    .kit-valor-tag {
+      display: inline-block;
+      background: var(--verde-cla);
+      color: var(--verde-esc);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .kit-extra {
+      background: linear-gradient(135deg, var(--amarelo), #ffe066);
+      color: var(--texto);
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: .92rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 22px;
+      border: 1px solid var(--amarelo-esc);
+    }
+
+    .kit-extra strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+
+    .kit-valor-stack {
+      background: var(--vermelho-cla);
+      border: 1px dashed var(--vermelho);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .kit-valor-stack p {
+      font-size: .88rem;
+      color: var(--texto-2);
+      line-height: 1.5;
+    }
+
+    .kit-valor-stack .valor-total {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--texto-3);
+      text-decoration: line-through;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .kit-valor-stack .valor-hoje {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--vermelho);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .kit-preco {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px dashed var(--borda);
+    }
+
+    .kit-preco-de {
+      font-size: .88rem;
+      color: var(--texto-3);
+      text-decoration: line-through;
+    }
+
+    .kit-preco-val {
+      font-family: 'Lora', serif;
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--vermelho);
+      line-height: 1;
+      margin: 6px 0 4px;
+    }
+
+    .kit-preco-info {
+      font-size: .82rem;
+      color: var(--texto-3);
+    }
+
+    .kit-cta-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--borda);
+    }
+
+    .kit-trust-icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .kit-trust-icons span {
+      font-size: .76rem;
+      color: var(--texto-3);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* DEPOIMENTOS */
+    .depo-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .depo-card {
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .05);
+    }
+
+    .depo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* GARANTIA */
+    .garantia-bloco {
+      background: var(--verde-cla);
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .garantia-selo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--amarelo);
+      border: 4px double var(--verde-esc);
+      color: var(--verde-esc);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      text-align: center;
+      padding: 12px;
+      box-shadow: 0 8px 22px rgba(45, 134, 89, .18);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800;
+      font-size: .7rem;
+      letter-spacing: .04em;
+      line-height: 1.2;
+    }
+
+    .garantia-selo .num {
+      font-family: 'Lora', serif;
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1;
+      margin: 2px 0;
+    }
+
+    .garantia-microcopy {
+      font-size: .98rem;
+      color: var(--texto-2);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .garantia-microcopy strong {
+      color: var(--verde-esc);
+    }
+
+    /* CTA FINAL */
+    .cta-final {
+      padding: 50px 20px 60px;
+      text-align: center;
+      background: var(--creme);
+    }
+
+    .cta-final h2 {
+      margin-bottom: 22px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--verde-esc);
+      color: rgba(255, 255, 255, .75);
+      padding: 28px 20px;
+      text-align: center;
+      font-size: .78rem;
+    }
+
+    .footer p+p {
+      margin-top: 8px;
+    }
+
+    /* CENTERED CTA BLOCK */
+    .cta-bloco {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .preco-comparativo {
+        gap: 12px;
+      }
+
+      .vs-grid {
+        gap: 10px;
+      }
+
+      .vs-col {
+        padding: 18px 14px;
+      }
+
+      .vs-list li {
+        font-size: .87rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        padding: 28px 16px 36px;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+        max-width: 100%;
+      }
+
+      .sec {
+        padding: 40px 16px;
+      }
+
+      .preco-comparativo {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .preco-card.destaque::before {
+        top: -10px;
+      }
+
+      .vs-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 18px 18px;
+        min-height: 56px;
+      }
+
+      .kit-box {
+        padding: 22px 18px;
+      }
+    }
+
+    /* HIDDEN UTIL */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Banner última chance (mostrado só se voltar < 5s) -->
+  <div class="ultima-chance-banner" id="ultima-chance" role="alert" aria-live="polite">
+    <span class="dot-pulse" aria-hidden="true"></span>
+    Última chance · 50% OFF expira ao sair desta página
+  </div>
+
+  <!-- Barra urgência -->
+  <div class="urgencia" role="status">
+    <span class="dot-pulse" aria-hidden="true"></span>
+    <span>Você foi redirecionada — oferta de retenção válida só agora</span>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <img src="images/logo.jpg" alt="Salada de Mão" class="logo-img" width="200" />
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="tag-espera">
+      <span class="dot-pulse" aria-hidden="true"></span>
+      Espera 1 minuto antes de sair
+    </span>
+
+    <h1>
+      Essa é a sua <span class="destaque">Última Chance</span>…
+    </h1>
+
+    <p class="hero-sub">
+      Como você quase saiu, eu travei pra você o <strong>pacote completo</strong> do método
+      (60 receitas + 4 bônus) com <strong>50% de desconto</strong> — R$19,90 só nesta página.
+      Se não gostar em 7 dias, devolvo seu dinheiro.
+    </p>
+
+    <div class="cta-bloco">
+      <a href="#cta-principal" class="btn" data-cta="hero">
+        SIM, QUERO TESTAR POR R$19,90 →
+      </a>
+      <p class="trustline">
+        🔒 Pagamento seguro · Acesso imediato no e-mail
+      </p>
+    </div>
+
+    <!-- Mini prova social acima da dobra -->
+    <div class="mini-prova" aria-label="Prova social">
+      <div class="avatares" aria-hidden="true">
+        <span class="avatar a1">M</span>
+        <span class="avatar a2">J</span>
+        <span class="avatar a3">R</span>
+      </div>
+      <div class="estrelas" aria-label="4.9 de 5 estrelas">★★★★★</div>
+      <p class="mini-prova-txt">
+        <strong>+2.300 mulheres</strong> já estão usando · 4.9/5
+      </p>
+    </div>
+  </section>
+
+  <!-- QUEBRA DE OBJEÇÃO + PREÇO -->
+  <section class="sec" id="preco-secao">
+    <h2>Achou caro? Olha de outro jeito.</h2>
+    <p class="objecao-intro">
+      A página anterior te ofereceu o pacote completo por R$29,90.
+      Aqui, <em>exatamente o mesmo conteúdo</em>, com 50% de desconto — porque você quase saiu.
+    </p>
+
+    <div class="preco-comparativo">
+      <div class="preco-card riscado">
+        <span class="preco-label">Página anterior</span>
+        <span class="preco-val">R$29,90</span>
+        <span class="preco-desc">Oferta normal</span>
+      </div>
+      <div class="preco-card destaque">
+        <span class="preco-label">Aqui agora</span>
+        <span class="preco-val">R$19,90</span>
+        <span class="preco-desc">Mesmo pacote · 50% off</span>
+      </div>
+    </div>
+
+    <p class="preco-contexto">
+      💸 Por R$19,90 você compra: ½ marmita de iFood · 1 café no Starbucks ·
+      ou aprende a fazer salada pra semana inteira.
+    </p>
+  </section>
+
+  <!-- VOCÊ vs ELAS -->
+  <section class="sec sec-alt">
+    <h2>Sua semana <em>com</em> e <em>sem</em> o método</h2>
+
+    <div class="vs-grid">
+      <div class="vs-col ruim">
+        <h3>Sem o método</h3>
+        <ul class="vs-list">
+          <li><span class="vs-ico" aria-hidden="true">😩</span><span>Pede iFood toda noite porque "não deu tempo"</span>
+          </li>
+          <li><span class="vs-ico" aria-hidden="true">🥡</span><span>Come mal, se sente pesada, dorme inchada</span>
+          </li>
+          <li><span class="vs-ico" aria-hidden="true">💸</span><span>Gasta R$600+ por mês em delivery</span></li>
+          <li><span class="vs-ico" aria-hidden="true">⚖️</span><span>Vê a balança subir e não entende o porquê</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vs-col boa">
+        <h3>Com o método</h3>
+        <ul class="vs-list">
+          <li><span class="vs-ico" aria-hidden="true">🥗</span><span>Salada já pronta na geladeira de domingo a
+              sexta</span></li>
+          <li><span class="vs-ico" aria-hidden="true">⏱️</span><span>Sem cozinhar correndo às 19h depois do
+              trabalho</span></li>
+          <li><span class="vs-ico" aria-hidden="true">💰</span><span>R$19,90 paga 1 semana inteira de almoço</span></li>
+          <li><span class="vs-ico" aria-hidden="true">✅</span><span>Controle do que come — sem culpa, sem dieta</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VAI LEVAR -->
+  <section class="sec" id="cta-principal">
+    <h2>O pacote completo continua o mesmo <em>só o preço caiu</em></h2>
+
+    <div class="kit-box">
+      <span class="kit-badge">🔥 50% OFF · Só nesta página</span>
+      <p class="kit-titulo">Salada de Mão · Pacote Completo</p>
+      <ul class="kit-list">
+        <li><span class="kit-check" aria-hidden="true">✓</span><span><strong>60 receitas</strong> de salada no pote
+            (método das camadas — dura 7 dias) <span class="kit-valor-tag">Valor: R$29,90</span></span></li>
+        <li><span class="kit-check" aria-hidden="true">✓</span><span><strong>Bônus 1:</strong> 30 receitas de Smoothies
+            Detox <span class="kit-valor-tag">Valor: R$19,90</span></span></li>
+        <li><span class="kit-check" aria-hidden="true">✓</span><span><strong>Bônus 2:</strong> 15 receitas de Águas
+            Saborizadas <span class="kit-valor-tag">Valor: R$14,90</span></span></li>
+        <li><span class="kit-check" aria-hidden="true">✓</span><span><strong>Bônus 3:</strong> 10 receitas de Shots
+            Matinais <span class="kit-valor-tag">Valor: R$12,90</span></span></li>
+        <li><span class="kit-check" aria-hidden="true">✓</span><span><strong>Bônus 4:</strong> Listas de compras prontas
+            (semana toda em 1 clique) <span class="kit-valor-tag">Valor: R$9,90</span></span></li>
+      </ul>
+
+      <div class="kit-extra">
+        <strong>🎁 Cortesia por quase ter saído</strong>
+        Plano de Cardápio Semanal Pronto — 7 dias decididos pra você
+      </div>
+
+      <div class="kit-valor-stack">
+        <p>Se vendesse tudo separado, você pagaria:</p>
+        <span class="valor-total">R$87,50</span>
+        <span class="valor-hoje">Hoje: apenas R$19,90</span>
+      </div>
+      <div class="kit-cta-area">
+        <a href="URL_CHECKOUT_DOWNSELL" class="btn" data-cta="meio" rel="nofollow">
+          GARANTIR MEU ACESSO IMEDIATO →
+        </a>
+        <div class="kit-trust-icons">
+          <span>🔒 Compra segura</span>
+          <span>⚡ Acesso imediato</span>
+          <span>🛡️ 7 dias de garantia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="sec sec-alt">
+    <h2>Quem já testou, não voltou pro iFood</h2>
+    <div class="depo-wrap">
+      <div class="depo-card">
+        <img src="images/wpp-1.webp" alt="Depoimento de aluna no WhatsApp" loading="lazy" />
+      </div>
+      <div class="depo-card">
+        <img src="images/wpp-2.webp" alt="Depoimento — aluna vendendo saladas" loading="lazy" />
+      </div>
+      <div class="depo-card">
+        <img src="images/wpp-3.webp" alt="Depoimento — agradecimento pelo método" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section class="garantia-bloco">
+    <div class="garantia-selo" aria-label="Garantia de 7 dias">
+      <span>SE NÃO GOSTAR</span>
+      <span class="num">7</span>
+      <span>DIAS · 100% DE VOLTA</span>
+    </div>
+    <p class="garantia-microcopy">
+      Você testa, faz <strong>1 ou 2 receitas</strong>, e se não funcionar pra você,
+      eu devolvo cada centavo. <strong>Sem precisar justificar.</strong>
+    </p>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <h2>Última vez que você vai ver esse preço.</h2>
+    <div class="cta-bloco">
+      <a href="#cta-principal" class="btn" data-cta="final">
+        COMEÇAR AGORA POR R$19,90 →
+      </a>
+      <p class="trustline">🔒 Acesso liberado em até 2 minutos · 7 dias de garantia</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© Salada de Mão · Todos os direitos reservados</p>
+    <p>Este produto não substitui orientação médica ou nutricional profissional.</p>
+  </footer>
+
+  <!-- Meta Pixel placeholder -->
+  <script>
+    // === META PIXEL ===
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      }; if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }(window,
+      document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    // SUBSTITUA PIXEL_ID_AQUI pelo seu Pixel ID da Meta
+    fbq('init', 'PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+    fbq('trackCustom', 'ViewBackredirect');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=PIXEL_ID_AQUI&ev=PageView&noscript=1" alt="" />
+  </noscript>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ============ CTAs: InitiateCheckout ============
+      var ctas = document.querySelectorAll('a[data-cta]');
+      ctas.forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (window.fbq) {
+            fbq('track', 'InitiateCheckout', {
+              value: 14.90,
+              currency: 'BRL',
+              content_name: 'Kit Iniciante - Salada de Mao',
+              content_category: 'downsell'
+            });
+          }
+        });
+      });
+
+      // ============ ScrollDeep 50% ============
+      var scrollFired = false;
+      function onScroll() {
+        if (scrollFired) return;
+        var h = document.documentElement;
+        var scrolled = (h.scrollTop + window.innerHeight) / h.scrollHeight;
+        if (scrolled >= 0.5) {
+          scrollFired = true;
+          if (window.fbq) fbq('trackCustom', 'ScrollDeep', { depth: 50 });
+          window.removeEventListener('scroll', onScroll);
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // ============ Popstate: banner "Última chance" (sem confirm) ============
+      // Empilha um state pra capturar o "voltar" sem bloquear o usuário
+      var entradaTs = Date.now();
+      try { history.pushState({ br: 1 }, ''); } catch (e) { /* noop */ }
+
+      var bannerShown = false;
+      window.addEventListener('popstate', function () {
+        var diff = Date.now() - entradaTs;
+        if (!bannerShown && diff < 5000) {
+          bannerShown = true;
+          var banner = document.getElementById('ultima-chance');
+          if (banner) {
+            banner.classList.add('show');
+            // Reempilha um state pra deixar o usuário sair na próxima
+            try { history.pushState({ br: 2 }, ''); } catch (e) { /* noop */ }
+            setTimeout(function () {
+              banner.classList.remove('show');
+            }, 10000);
+          }
+        }
+        // Sem confirm() — usuário pode sair livremente
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
