@@ -2273,19 +2273,6 @@
       })();
     </script>
 
-    <!-- BACKREDIRECT — intercepta clique em "voltar" e manda pro downsell -->
-    <script>
-      (function () {
-        'use strict';
-        var DESTINO = '/backredirect.html';
-        // Empilha um estado extra pra capturar o primeiro "voltar"
-        try { history.pushState({ br: 1 }, '', location.href); } catch (e) { return; }
-        window.addEventListener('popstate', function () {
-          // Substitui a entrada atual pelo backredirect (não acumula no histórico)
-          window.location.replace(DESTINO);
-        });
-      })();
-    </script>
 </body>
 
 </html>
