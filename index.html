@@ -734,8 +734,20 @@
     /* VÍDEO APRESENTAÇÃO APP */
     .app-video-section {
       background: var(--bege);
-      padding: 60px 22px 0;
-      text-align: center
+      padding: 72px 22px 80px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px
+    }
+
+    .video-headline {
+      font-size: clamp(1.45rem, 3.5vw, 2rem);
+      font-weight: 700;
+      color: var(--verde-esc);
+      line-height: 1.25;
+      max-width: 560px
     }
 
     .app-video-wrap {
@@ -757,6 +769,12 @@
         padding-bottom: 0;
         height: auto;
         aspect-ratio: 9 / 16
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-video-wrap {
+        max-width: 260px
       }
     }
 
@@ -1222,6 +1240,74 @@
       box-shadow: 0 18px 60px rgba(0, 0, 0, .25);
       position: relative;
       border-top: 4px solid var(--amarelo)
+    }
+
+    .preco-box.preco-box-basico {
+      max-width: 420px;
+      padding: 24px 22px;
+      margin: 0 auto 22px;
+      background: rgba(255, 255, 255, .06);
+      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-top: 1px solid rgba(255, 255, 255, .14);
+      color: rgba(255, 255, 255, .82)
+    }
+
+    .preco-box.preco-box-basico h3 {
+      font-size: .95rem;
+      color: rgba(255, 255, 255, .88);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600
+    }
+
+    .preco-box.preco-box-basico .preco-box-sub {
+      color: rgba(255, 255, 255, .55);
+      font-size: .78rem
+    }
+
+    .preco-box.preco-box-basico .preco-val {
+      font-size: 1.8rem;
+      color: rgba(255, 255, 255, .85);
+      font-weight: 600
+    }
+
+    .preco-box.preco-box-basico .preco-item {
+      font-size: .82rem;
+      padding: 5px 0;
+      color: rgba(255, 255, 255, .72);
+      border-bottom: 1px dashed rgba(255, 255, 255, .08)
+    }
+
+    .preco-box.preco-box-basico .preco-item .p-ok {
+      color: rgba(255, 255, 255, .55) !important;
+      background: transparent !important
+    }
+
+    .preco-box.preco-box-basico .btn {
+      background: transparent;
+      color: rgba(255, 255, 255, .8);
+      border: 1px solid rgba(255, 255, 255, .25);
+      box-shadow: none;
+      font-size: .85rem;
+      padding: 11px 18px;
+      font-weight: 500
+    }
+
+    .preco-box.preco-box-basico .btn:hover {
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, .4)
+    }
+
+    .preco-divider {
+      max-width: 460px;
+      margin: 0 auto 20px;
+      text-align: center;
+      color: rgba(255, 255, 255, .7);
+      font-size: .82rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 600
     }
 
     .preco-ribbon {
@@ -1950,6 +2036,7 @@
 
   <!-- VÍDEO DE APRESENTAÇÃO DO APP -->
   <section class="app-video-section">
+    <h2 class="video-headline fi">ASSISTA a prévia da aula 1 : O Método das Camadas.</h2>
     <div class="app-video-wrap">
       <video controls playsinline preload="metadata" poster="images/mockup-app.png">
         <source src="videos/tutorial-camadas.mp4" type="video/mp4" />
@@ -1995,10 +2082,30 @@
 
           </p>
         </div>
+        <div class="preco-box preco-box-basico fi">
+          <h3>Plano Básico — Só as Receitas</h3>
+          <p class="preco-box-sub">Versão enxuta, só pra quem quer testar</p>
+          <div class="preco-lista">
+            <div class="preco-item"><span class="p-ok">✓</span>60 receitas de saladas no pote</div>
+            <div class="preco-item"><span class="p-ok">✓</span>Acesso via email</div>
+            <div class="preco-item"><span class="p-ok">✓</span>Garantia de 7 dias</div>
+            <div class="preco-item" style="color:rgba(255,255,255,.4)"><span style="color:rgba(255,255,255,.35);flex-shrink:0;margin-top:1px;font-size:1rem">✗</span>Sem os molhos especiais</div>
+            <div class="preco-item" style="color:rgba(255,255,255,.4)"><span style="color:rgba(255,255,255,.35);flex-shrink:0;margin-top:1px;font-size:1rem">✗</span>Sem os 4 bônus exclusivos</div>
+            <div class="preco-item" style="color:rgba(255,255,255,.4)"><span style="color:rgba(255,255,255,.35);flex-shrink:0;margin-top:1px;font-size:1rem">✗</span>Sem listas de compras prontas</div>
+            <div class="preco-item" style="color:rgba(255,255,255,.4)"><span style="color:rgba(255,255,255,.35);flex-shrink:0;margin-top:1px;font-size:1rem">✗</span>Garantia reduzida (7 dias)</div>
+          </div>
+          <div class="preco-val">R$19,90</div>
+          <div class="preco-parcel"></div>
+          <a href="LINK_BASICO_AQUI" class="btn btn-lg"
+            style="width:100%;justify-content:center">QUERO O PLANO BÁSICO</a>
+        </div>
+
+        <div class="preco-divider fi">— ou por +R$10 Leve todos esses benefícios 👇🏻—</div>
+
         <div class="preco-box fi">
           <div class="preco-ribbon">🔥 OFERTA ESPECIAL</div>
-          <h3>Salada de Mão — Pacote Completo (+ Bônus)</h3>
-          <p class="preco-box-sub">Acesso imediato</p>
+          <h3>Salada de Mão — Pacote Completo (Molhos + App + Bônus)</h3>
+          <p class="preco-box-sub">Acesso imediato pelo aplicativo</p>
           <div class="preco-lista">
             <div class="preco-item"><span class="p-ok">✓</span>60 receitas de saladas no pote</div>
             <div class="preco-item"><span class="p-ok">✓</span>Molhos especiais para cada receita</div>
@@ -2010,6 +2117,7 @@
                   style="color:#bbb"></small></span></div>
             <div class="preco-item"><span class="p-ok">✓</span><span><strong>Bônus 4:</strong> Listas de compras prontas
                 <small style="color:#bbb"></small></span></div>
+            <div class="preco-item"><span class="p-ok">✓</span>Acesso imediato via app (celular, tablet ou PC)</div>
             <div class="preco-item"><span class="p-ok">✓</span>Garantia de 15 dias</div>
           </div>
           <div class="preco-de">De R$87,00 + R$97,90(BÔNUS)</div>
@@ -2048,7 +2156,7 @@
               Há 6 anos ajudo pessoas a transformarem a rotina com soluções simples e fáceis de aplicar.</p>
             <p class="fi">Minhas receitas viralizaram porque resolvem um problema real: todo mundo quer comer bem, mas
               ninguém tem tempo de montar salada todo dia.</p>
-            <p class="fi">Reuni as <strong>+60 melhores receitas</strong> num único lugar pra você comer com prazer, sem
+            <p class="fi">Reuni as <strong>+60 melhores receitas</strong> num único app pra você comer com prazer, sem
               culpa e sem perder tempo. <strong>Eu mesma emagreci 7kg seguindo esse método.</strong></p>
             <span class="autora-assinatura fi">Cibele Ramos ✦</span>
           </div>
@@ -2067,9 +2175,10 @@
           <div class="faq-item">
             <div class="faq-q">Como vou receber as receitas? <span class="faq-seta">+</span></div>
             <div class="faq-r">Assim que o pagamento for confirmado, você recebe acesso imediato no mesmo email que
-              adquiriu o Salada de Mão pra ver o conteúdo. Você poderá abrir no computador, tablet. Além disso, receberá um e-mail com orientações
+              adquiriu o Salada de Mão pra ver o conteúdo através do app. Você poderá abrir no computador, tablet ou até
+              mesmo baixar o app no seu celular de forma fácil e rápida. Além disso, receberá um e-mail com orientações
               sobre o
-              seu acesso.</div>
+              aplicativo.</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">Tem garantia? <span class="faq-seta">+</span></div>
@@ -2268,6 +2377,36 @@
         buildDots();
         update();
         resetAuto();
+      })();
+    </script>
+
+    <!-- Back Redirect: ao tentar sair, leva para a oferta de retenção -->
+    <script>
+      (function () {
+        'use strict';
+        var ignoreUntil = 0;
+
+        // Qualquer clique em link (botão CTA, âncora, etc.) abre uma "janela"
+        // curta na qual o popstate é ignorado — só o botão "voltar" real do
+        // navegador dispara o redirect.
+        document.addEventListener('click', function (e) {
+          var a = e.target && e.target.closest && e.target.closest('a');
+          if (a) ignoreUntil = Date.now() + 1500;
+        }, true);
+
+        try { history.pushState({ br: 'main' }, ''); } catch (e) { return; }
+
+        var fired = false;
+        window.addEventListener('popstate', function () {
+          if (fired) return;
+          if (Date.now() < ignoreUntil) {
+            // Foi navegação de link interno — re-empilha sentinel e ignora.
+            try { history.pushState({ br: 'main' }, ''); } catch (e) {}
+            return;
+          }
+          fired = true;
+          window.location.replace('backredirect.html');
+        });
       })();
     </script>
 
